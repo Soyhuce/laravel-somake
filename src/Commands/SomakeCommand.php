@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Soyhuce\Somake\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class SomakeCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-somake';
 
     public $description = 'My command';
 
