@@ -2,8 +2,8 @@
 
 $finder = PhpCsFixer\Finder::create()->in([
     'config',
-    'database',
     'src',
+    'test-laravel',
     'tests',
 ]);
 
