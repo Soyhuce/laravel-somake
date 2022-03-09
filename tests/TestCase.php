@@ -1,36 +1,51 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Soyhuce\Somake\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Soyhuce\Somake\SomakeServiceProvider;
+use Support\BaseApplication;
 
+/**
+ * @coversNothing
+ */
 class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Soyhuce\\Somake\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        if (method_exists($this, 'bootApplicationRestoration')) {
+            $this->bootApplicationRestoration();
+        }
     }
 
-    protected function getPackageProviders($app)
+    protected function resolveApplication()
+    {
+        return tap(new BaseApplication($this->getBasePath()), function ($app): void {
+            PackageManifest::swap($app, $this);
+        });
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     * @return array<string>
+     */
+    protected function getPackageProviders($app): array
     {
         return [
             SomakeServiceProvider::class,
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    protected function getBasePath(): string
     {
-        config()->set('database.default', 'testing');
+        return realpath(__DIR__ . '/../vendor/test-laravel/test-laravel/');
+    }
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-somake_table.php.stub';
-        $migration->up();
-        */
+    protected function expectedPath(string $file): string
+    {
+        return realpath(__DIR__ . "/Expected/{$file}");
     }
 }
