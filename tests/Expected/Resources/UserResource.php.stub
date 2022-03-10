@@ -2,7 +2,7 @@
 
 namespace App\Admin\Resources\User;
 
-use Soyhuce\JsonResource\JsonResource;
+use Soyhuce\JsonResources\JsonResource;
 
 /**
  * @mixin \Domain\User\Models\User

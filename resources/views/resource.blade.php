@@ -1,6 +1,6 @@
 namespace {{ $namespace }};
 
-use Soyhuce\JsonResource\JsonResource;
+use Soyhuce\JsonResources\JsonResource;
 
 /**
  * @@mixin \{{ $model->class }}
