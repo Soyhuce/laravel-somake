@@ -1,8 +1,8 @@
 namespace {{ $namespace }};
 
-use Illuminate\Foundation\Http\FormRequest;
+use {{ $baseClass }};
 
-class {{ $request }} extends FormRequest
+class {{ $request }} extends {{ $baseClassName }}
 {
     /**
      * @@return array<string, mixed>

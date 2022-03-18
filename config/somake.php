@@ -14,5 +14,6 @@ return [
         'factory' => Illuminate\Database\Eloquent\Factories\Factory::class,
         'model' => Illuminate\Database\Eloquent\Model::class,
         'policy' => null,
+        'request' => Illuminate\Foundation\Http\FormRequest::class,
     ],
 ];
