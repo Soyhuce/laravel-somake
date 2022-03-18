@@ -45,6 +45,7 @@ class RequestCommand extends Command
         $fields = $this->resolveFields($finder, $ruler);
 
         $writer->write('request', ['request' => $request, 'fields' => $fields])
+            ->withBaseClass(config('somake.base_classes.request'))
             ->toPath($finder->applicationPath($path));
 
         $this->info("The {$requestFqcn} class was successfully created !");
