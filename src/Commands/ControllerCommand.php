@@ -34,7 +34,9 @@ class ControllerCommand extends Command
             $controllerFqcn = "App\\{$applicationNamespace}\\Controllers\\{$namespace}\\{$controller}";
         }
 
-        $writer->write('controller', ['controller' => $controller])->toPath($finder->applicationPath($path));
+        $writer->write('controller', ['controller' => $controller])
+            ->withBaseClass(config('somake.base_classes.controller'))
+            ->toPath($finder->applicationPath($path));
 
         $this->info("The {$controllerFqcn} class was successfully created !");
     }

@@ -1,5 +1,10 @@
 namespace {{ $namespace }};
+@if($baseClass)
 
-class {{ $controller }}
+use {{ $baseClass }};
+@endif
+
+class {{ $controller }}@if($baseClassName) extends {{$baseClassName}}@endif
+
 {
 }
