@@ -1,11 +1,11 @@
 namespace {{ $namespace }};
 
-use Tests\TestCase;
+use {{ $baseClass }};
 
 /**
  * @@coversDefaultClass \{{ $coveredClass }}
  */
-class {{ $className }} extends TestCase
+class {{ $className }} extends {{ $baseClassName }}
 {
     /**
      * @@test

@@ -16,5 +16,8 @@ return [
         'policy' => null,
         'request' => Illuminate\Foundation\Http\FormRequest::class,
         'resource' => Illuminate\Http\Resources\Json\JsonResource::class,
+        'test_contract' => Tests\TestCase::class,
+        'test_feature' => Tests\TestCase::class,
+        'test_unit' => PHPUnit\Framework\TestCase::class,
     ],
 ];
