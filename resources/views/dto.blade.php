@@ -1,7 +1,7 @@
 namespace {{ $namespace }};
 
-use Spatie\DataTransferObject\DataTransferObject;
+use {{ $baseClass }};
 
-class {{ $dto }} extends DataTransferObject
+class {{ $dto }} extends {{ $baseClassName }}
 {
 }

@@ -10,5 +10,6 @@ return [
         'builder' => Illuminate\Database\Eloquent\Builder::class,
         'command' => Illuminate\Console\Command::class,
         'controller' => null,
+        'dto' => Spatie\DataTransferObject\DataTransferObject::class,
     ],
 ];
