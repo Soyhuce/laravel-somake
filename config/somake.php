@@ -15,5 +15,6 @@ return [
         'model' => Illuminate\Database\Eloquent\Model::class,
         'policy' => null,
         'request' => Illuminate\Foundation\Http\FormRequest::class,
+        'resource' => Illuminate\Http\Resources\Json\JsonResource::class,
     ],
 ];
