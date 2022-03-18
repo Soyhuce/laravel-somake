@@ -26,7 +26,9 @@ class BuilderCommand extends Command
 
         $builder = str_replace('\\Models\\', '\\Builders\\', $modelName) . 'Builder';
 
-        $writer->write('builder')->toClass($builder);
+        $writer->write('builder')
+            ->withBaseClass(config('somake.base_classes.builder'))
+            ->toClass($builder);
 
         $this->info("The {$builder} class was successfully created !");
 
