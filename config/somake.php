@@ -12,5 +12,6 @@ return [
         'controller' => null,
         'dto' => Spatie\DataTransferObject\DataTransferObject::class,
         'factory' => Illuminate\Database\Eloquent\Factories\Factory::class,
+        'model' => Illuminate\Database\Eloquent\Model::class,
     ],
 ];
