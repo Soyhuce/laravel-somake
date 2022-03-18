@@ -21,7 +21,9 @@ class CommandCommand extends Command
         $command = $this->ask('What is the Command name ?');
         $commandFqcn = 'App\\Commands\\' . $command;
 
-        $writer->write('command')->toClass($commandFqcn);
+        $writer->write('command')
+            ->withBaseClass(config('somake.base_classes.command'))
+            ->toClass($commandFqcn);
 
         $this->info("The {$commandFqcn} class was successfully created !");
 

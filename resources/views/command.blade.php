@@ -1,8 +1,8 @@
 namespace {{ $namespace }};
 
-use Illuminate\Console\Command;
+use {{ $baseClass }};
 
-class {{ $className }} extends Command
+class {{ $className }} extends {{ $baseClassName }}
 {
     /** @@var string */
     protected $signature = 'command:name';
