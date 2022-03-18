@@ -36,6 +36,7 @@ class ResourceCommand extends Command
         $resourceFqcn = "App\\{$applicationNamespace}\\Resources\\{$model->getDomain()}\\{$resource}";
 
         $writer->write('resource', ['resource' => $resource, 'model' => $model])
+            ->withBaseClass(config('somake.base_classes.resource'))
             ->toPath($finder->applicationPath($path));
 
         $this->info("The {$resourceFqcn} class was successfully created !");
