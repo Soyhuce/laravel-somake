@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Domain\User\Models;
 
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \Domain\User\Models\User

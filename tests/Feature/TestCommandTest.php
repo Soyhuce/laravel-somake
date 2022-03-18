@@ -1,144 +1,136 @@
 <?php declare(strict_types=1);
 
-namespace Soyhuce\Somake\Tests\Feature;
+it('creates correctly the contract test', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
+        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-use Soyhuce\Somake\Tests\RestoreTestApplication;
-use Soyhuce\Somake\Tests\TestCase;
+    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-/**
- * @covers \Soyhuce\Somake\Commands\TestCommand
- */
-class TestCommandTest extends TestCase
-{
-    use RestoreTestApplication;
+it('creates correctly the contract test with custom base class', function (): void {
+    config()->set('somake.base_classes.test_contract', 'Tests\\ContractTestCase');
 
-    /**
-     * @test
-     */
-    public function theContractTestIsCorrectlyCreated(): void
-    {
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
-            ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-            ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
-            ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
+        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->assertFileExists($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'));
+    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-        $this->assertFileEquals(
-            $this->expectedPath('Tests/ContractShowVideoTest.php.stub'),
-            $this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php')
-        );
-    }
+it('creates correctly the contract pest', function (): void {
+    file_put_contents(base_path('tests/Pest.php'), '');
 
-    /**
-     * @test
-     */
-    public function theContractPestIsCorrectlyCreated(): void
-    {
-        file_put_contents(base_path('tests/Pest.php'), '');
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
+        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
-            ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-            ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
-            ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-        $this->assertFileExists($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'));
+it('creates correctly the feature test', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
+        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->assertFileEquals(
-            $this->expectedPath('Pests/ContractShowVideoTest.php.stub'),
-            $this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php')
-        );
-    }
+    expect($this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-    /**
-     * @test
-     */
-    public function theFeatureTestIsCorrectlyCreated(): void
-    {
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
-            ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-            ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
-            ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+it('creates correctly the feature test with custom base class', function (): void {
+    config()->set('somake.base_classes.test_feature', 'Tests\\FeatureTestCase');
 
-        $this->assertFileExists($this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php'));
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
+        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->assertFileEquals(
-            $this->expectedPath('Tests/ShowVideoTest.php.stub'),
-            $this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php')
-        );
-    }
+    expect($this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-    /**
-     * @test
-     */
-    public function theFeaturePestIsCorrectlyCreated(): void
-    {
-        file_put_contents(base_path('tests/Pest.php'), '');
+it('creates correctly the feature pest', function (): void {
+    file_put_contents(base_path('tests/Pest.php'), '');
 
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
-            ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-            ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
-            ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
+        ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
+        ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
+        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->assertFileExists($this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php'));
+    expect($this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-        $this->assertFileEquals(
-            $this->expectedPath('Pests/ShowVideoTest.php.stub'),
-            $this->app->basePath('tests/Feature/Website/Videos/VideoController/ShowVideoTest.php')
-        );
-    }
+it('creates correctly the unit test', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'User')
+        ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-    /**
-     * @test
-     */
-    public function theUnitTestIsCorrectlyCreated(): void
-    {
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
-            ->expectsQuestion('Which class do you want to cover ?', 'User')
-            ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+    expect($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-        $this->assertFileExists($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'));
+it('creates correctly the unit testwith custom base class', function (): void {
+    config()->set('somake.base_classes.test_unit', 'Tests\\UnitTestCase');
 
-        $this->assertFileEquals(
-            $this->expectedPath('Tests/UserTest.php.stub'),
-            $this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php')
-        );
-    }
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'User')
+        ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-    /**
-     * @test
-     */
-    public function theUnitPestIsCorrectlyCreated(): void
-    {
-        file_put_contents(base_path('tests/Pest.php'), '');
+    expect($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
 
-        $this->artisan('somake:test')
-            ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
-            ->expectsQuestion('Which class do you want to cover ?', 'User')
-            ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
-            ->assertExitCode(0)
-            ->execute();
+it('creates correctly the unit pest', function (): void {
+    file_put_contents(base_path('tests/Pest.php'), '');
 
-        $this->assertFileExists($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'));
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'User')
+        ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
 
-        $this->assertFileEquals(
-            $this->expectedPath('Pests/UserTest.php.stub'),
-            $this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php')
-        );
-    }
-}
+    expect($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});

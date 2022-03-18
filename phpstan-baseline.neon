@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Class Tests\\\\TestCase not found\\.$#"
+			count: 2
+			path: config/somake.php
+
+		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) has parameter \\$models with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php

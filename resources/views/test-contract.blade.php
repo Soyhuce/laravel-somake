@@ -1,11 +1,11 @@
 namespace {{ $namespace }};
 
-use Tests\ContractTestCase;
+use {{ $baseClass }};
 
 /**
  * @@coversDefaultClass \{{ $coveredClass }}
  */
-class {{ $className }} extends ContractTestCase
+class {{ $className }} extends {{ $baseClassName }}
 {
     /**
      * @@test

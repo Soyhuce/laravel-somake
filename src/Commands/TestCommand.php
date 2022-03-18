@@ -43,7 +43,9 @@ class TestCommand extends Command
             $testName
         );
 
-        $writer->write($this->stubFile('contract'), ['coveredClass' => $controller])->toClass($testClass);
+        $writer->write($this->stubFile('contract'), ['coveredClass' => $controller])
+            ->withBaseClass(config('somake.base_classes.test_contract'))
+            ->toClass($testClass);
 
         return $testClass;
     }
@@ -59,7 +61,9 @@ class TestCommand extends Command
             $testName
         );
 
-        $writer->write($this->stubFile('feature'), ['coveredClass' => $controller])->toClass($testClass);
+        $writer->write($this->stubFile('feature'), ['coveredClass' => $controller])
+            ->withBaseClass(config('somake.base_classes.test_feature'))
+            ->toClass($testClass);
 
         return $testClass;
     }
@@ -70,7 +74,9 @@ class TestCommand extends Command
 
         $testClass = "Tests\\Unit\\{$class}Test";
 
-        $writer->write($this->stubFile('unit'), ['coveredClass' => $class])->toClass($testClass);
+        $writer->write($this->stubFile('unit'), ['coveredClass' => $class])
+            ->withBaseClass(config('somake.base_classes.test_unit'))
+            ->toClass($testClass);
 
         return $testClass;
     }
