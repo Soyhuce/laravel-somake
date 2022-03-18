@@ -1,7 +1,7 @@
 namespace {{ $namespace }};
 
-use Illuminate\Database\Eloquent\Builder;
+use {{ $baseClass }};
 
-class {{ $className }} extends Builder
+class {{ $className }} extends {{ $baseClassName }}
 {
 }
