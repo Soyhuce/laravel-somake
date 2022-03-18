@@ -1,9 +1,9 @@
 namespace {{ $namespace }};
 
 use {{ $model->class }};
-use Illuminate\Database\Eloquent\Factories\Factory;
+use {{ $baseClass }};
 
-class {{ $className }} extends Factory
+class {{ $className }} extends {{ $baseClassName }}
 {
     /** @@var string */
     protected $model = {{ $model->getName() }}::class;
