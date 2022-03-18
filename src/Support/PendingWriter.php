@@ -39,6 +39,14 @@ class PendingWriter
         Event::dispatch(new FileWritten($path));
     }
 
+    public function withBaseClass(?string $baseClass): static
+    {
+        $this->data->put('baseClass', $baseClass);
+        $this->data->put('baseClassName', optional($baseClass, fn (string $class) => class_basename($class)));
+
+        return $this;
+    }
+
     protected function findNamespace(string $path): ?string
     {
         try {

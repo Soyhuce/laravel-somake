@@ -29,6 +29,7 @@ class SomakeServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-somake')
+            ->hasConfigFile()
             ->hasViews()
             ->hasCommands([
                 ActionCommand::class,

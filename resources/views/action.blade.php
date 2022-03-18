@@ -1,6 +1,11 @@
 namespace {{ $namespace }};
+@if($baseClass)
 
-class {{ $action }}
+use {{ $baseClass }};
+@endif
+
+class {{ $action }}@if($baseClassName) extends {{$baseClassName}}@endif
+
 {
     public function execute(): void
     {

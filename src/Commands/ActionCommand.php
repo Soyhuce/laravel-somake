@@ -25,7 +25,9 @@ class ActionCommand extends Command
 
         $domain = $this->askDomain($finder->domains());
 
-        $writer->write('action', ['action' => $action])->toPath($finder->domainPath("{$domain}/Actions/{$action}.php"));
+        $writer->write('action', ['action' => $action])
+            ->withBaseClass(config('somake.base_classes.action'))
+            ->toPath($finder->domainPath("{$domain}/Actions/{$action}.php"));
 
         $actionFqcn = "Domain\\{$domain}\\Actions\\{$action}";
         $this->info("The {$actionFqcn} class was successfully created !");
