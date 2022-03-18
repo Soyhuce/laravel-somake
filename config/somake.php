@@ -8,5 +8,6 @@ return [
     'base_classes' => [
         'action' => null,
         'builder' => Illuminate\Database\Eloquent\Builder::class,
+        'command' => Illuminate\Console\Command::class,
     ],
 ];
