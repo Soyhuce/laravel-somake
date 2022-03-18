@@ -11,5 +11,6 @@ return [
         'command' => Illuminate\Console\Command::class,
         'controller' => null,
         'dto' => Spatie\DataTransferObject\DataTransferObject::class,
+        'factory' => Illuminate\Database\Eloquent\Factories\Factory::class,
     ],
 ];

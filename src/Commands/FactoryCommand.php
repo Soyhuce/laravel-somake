@@ -31,6 +31,7 @@ class FactoryCommand extends Command
         $model = new Model($modelName);
 
         $writer->write('factory', ['model' => $model])
+            ->withBaseClass(config('somake.base_classes.factory'))
             ->toClass($factory);
 
         $this->info("The {$factory} class was successfully created !");
