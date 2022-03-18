@@ -28,7 +28,9 @@ class PolicyCommand extends Command
 
         $policy = $this->guessPolicyName($modelName);
 
-        $writer->write('policy')->toClass($policy);
+        $writer->write('policy')
+            ->withBaseClass(config('somake.base_classes.policy'))
+            ->toClass($policy);
 
         $this->info("The {$policy} class was successfully created !");
 
