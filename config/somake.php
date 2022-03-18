@@ -4,4 +4,8 @@ return [
     // Provide the path to your IDE and this package will open
     // newly created files automatically.
     'ide_path' => env('IDE'),
+
+    'base_classes' => [
+        'action' => null,
+    ],
 ];

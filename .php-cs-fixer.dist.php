@@ -1,11 +1,13 @@
 <?php declare(strict_types=1);
 
-$finder = PhpCsFixer\Finder::create()->in([
-    'config',
-    'src',
-    'test-laravel',
-    'tests',
-]);
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('__snapshots__')
+    ->in([
+        'config',
+        'src',
+        'test-laravel',
+        'tests',
+    ]);
 
 return (new PhpCsFixer\Config())->setRules([
     /*

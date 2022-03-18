@@ -39,6 +39,7 @@
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5",
         "spatie/data-transfer-object": "^3.3",
+        "spatie/pest-plugin-snapshots": "^1.1",
         "test-laravel/test-laravel": "*"
     },
     "autoload": {
