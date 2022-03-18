@@ -26,7 +26,9 @@ class ModelCommand extends Command
 
         $domain = $this->askDomain($finder->domains());
 
-        $writer->write('model', ['model' => $model])->toPath($finder->domainPath("{$domain}/Models/{$model}.php"));
+        $writer->write('model', ['model' => $model])
+            ->withBaseClass(config('somake.base_classes.model'))
+            ->toPath($finder->domainPath("{$domain}/Models/{$model}.php"));
 
         $modelFqcn = "Domain\\{$domain}\\Models\\{$model}";
         $this->info("The {$modelFqcn} class was successfully created !");
