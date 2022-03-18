@@ -23,7 +23,9 @@ class DtoCommand extends Command
 
         $domain = $this->askDomain($finder->domains());
 
-        $writer->write('dto', ['dto' => $dto])->toPath($finder->domainPath("{$domain}/DTO/{$dto}.php"));
+        $writer->write('dto', ['dto' => $dto])
+            ->withBaseClass(config('somake.base_classes.dto'))
+            ->toPath($finder->domainPath("{$domain}/DTO/{$dto}.php"));
 
         $dtoFqcn = "Domain\\{$domain}\\DTO\\{$dto}";
         $this->info("The {$dtoFqcn} class was successfully created !");
