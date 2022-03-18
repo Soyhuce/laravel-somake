@@ -9,5 +9,6 @@ return [
         'action' => null,
         'builder' => Illuminate\Database\Eloquent\Builder::class,
         'command' => Illuminate\Console\Command::class,
+        'controller' => null,
     ],
 ];
