@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.1.0 - 2022-03-21
+
+## What's Changed
+
+- Add ability to customize base class by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/3
+- Add somake:enum command by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/4
+- Add somake:provider command by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/5
+- Allow middleware to be created in Support by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/6
+- Fix some phpstan errors by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/7
+
+## Upgrade
+
+The config file was changed, please update it if you publish it in your project
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.0.1...1.1.0
+
 ## 1.0.1 - 2022-03-10
 
 ## What's Changed
