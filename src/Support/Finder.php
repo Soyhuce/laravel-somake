@@ -26,7 +26,7 @@ class Finder
     }
 
     /**
-     * @return \Illuminate\Support\Collection<string>
+     * @return \Illuminate\Support\Collection<int, string>
      */
     public function domains(): Collection
     {

@@ -37,14 +37,14 @@ trait AsksApplication
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $domains
+     * @param \Illuminate\Support\Collection<int, string>|null $domains
      */
-    protected function askOptionalNamespace(string $classname, Collection $domains): ?string
+    protected function askOptionalNamespace(string $classname, ?Collection $domains = null): ?string
     {
         return $this->anticipate(
             "You may want {$classname} to live in a sub namespace. Which one ?"
             . ' Leave it empty if you want to leave it in root namespace.',
-            $domains->all()
+            $domains?->all() ?? []
         );
     }
 }

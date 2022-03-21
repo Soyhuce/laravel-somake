@@ -1,9 +1,11 @@
-namespace {{ $namespace }};
+<?php
+
+namespace Support\Http\Middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class {{ $className }}
+class FilterUnpublished
 {
     public function handle(Request $request, Closure $next): mixed
     {

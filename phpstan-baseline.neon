@@ -236,11 +236,6 @@ parameters:
 			path: src/Support/Finder.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:domains\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:dtos\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: src/Support/Finder.php
