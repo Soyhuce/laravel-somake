@@ -57,9 +57,10 @@ The configuration of generated classes is done via interactive questions.
 
 ### Support
 
-| Commande      | Description | Generation path     |
-|---------------|-------------|---------------------|
-| `somake:enum` | Enum        | `app/Support/Enums` |
+| Commande          | Description      | Generation path         |
+|-------------------|------------------|-------------------------|
+| `somake:enum`     | Enum             | `app/Support/Enums`     |
+| `somake:provider` | Service Provider | `app/Support/Providers` |
 
 ### Other
 
