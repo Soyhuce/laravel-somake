@@ -1,9 +1,11 @@
-namespace {{ $namespace }};
+<?php
+
+namespace Support\Http\Middlewares\Auth;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class {{ $className }}
+class OnlySuperAdmin
 {
     public function handle(Request $request, Closure $next): mixed
     {

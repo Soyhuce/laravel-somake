@@ -23,23 +23,39 @@ class MiddlewareCommand extends Command
     {
         $middleware = $this->ask('What is the Middleware name ?');
 
+        $middlewareFqcn = $this->confirm('Do you want it to be in an Application ? Say no if you want it in Support')
+            ? $this->inApplication($finder, $middleware)
+            : $this->inSupport($middleware);
+
+        $writer->write('middleware')->toClass($middlewareFqcn);
+
+        $this->info("The {$middlewareFqcn} class was successfully created !");
+
+        $this->createUnitTest($middlewareFqcn);
+    }
+
+    private function inApplication(Finder $finder, string $middleware): string
+    {
         $application = $this->askApplication($finder->applications());
         $applicationNamespace = str_replace('/', '\\', $application);
 
         $namespace = $this->askOptionalNamespace($middleware, $finder->domains());
 
         if ($namespace === null) {
-            $path = "{$application}/Middlewares/{$middleware}.php";
-            $middlewareFqcn = "App\\{$applicationNamespace}\\Middlewares\\{$middleware}";
-        } else {
-            $path = "{$application}/Middlewares/{$namespace}/{$middleware}.php";
-            $middlewareFqcn = "App\\{$applicationNamespace}\\Middlewares\\{$namespace}\\{$middleware}";
+            return "App\\{$applicationNamespace}\\Middlewares\\{$middleware}";
         }
 
-        $writer->write('middleware', ['middleware' => $middleware])->toPath($finder->applicationPath($path));
+        return "App\\{$applicationNamespace}\\Middlewares\\{$namespace}\\{$middleware}";
+    }
 
-        $this->info("The {$middlewareFqcn} class was successfully created !");
+    private function inSupport(string $middleware): string
+    {
+        $namespace = $this->askOptionalNamespace($middleware);
 
-        $this->createUnitTest($middlewareFqcn);
+        if ($namespace === null) {
+            return "Support\\Http\\Middlewares\\{$middleware}";
+        }
+
+        return "Support\\Http\\Middlewares\\{$namespace}\\{$middleware}";
     }
 }
