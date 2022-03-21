@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 trait AsksModel
 {
+    use WrapsCallable;
+
     /**
      * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      * @return class-string<\Illuminate\Database\Eloquent\Model>
@@ -25,7 +27,7 @@ trait AsksModel
 
         $model = $this->anticipate(
             'What is the Model ?',
-            $models->merge($models->map(fn (string $model) => class_basename($model)))->sort()->all()
+            $this->wrapCallable($models->merge($models->map(fn (string $model) => class_basename($model)))->sort()->all())
         );
 
         if ($models->contains($model)) {

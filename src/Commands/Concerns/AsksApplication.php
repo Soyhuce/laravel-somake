@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 trait AsksApplication
 {
+    use WrapsCallable;
+
     /**
      * @param \Illuminate\Support\Collection<int, string> $applications
      */
@@ -18,7 +20,7 @@ trait AsksApplication
 
         $this->showApplications($applications);
 
-        return $this->anticipate('What is the Application ?', $applications->all());
+        return $this->anticipate('What is the Application ?', $this->wrapCallable($applications->all()));
     }
 
     /**
@@ -44,7 +46,7 @@ trait AsksApplication
         return $this->anticipate(
             "You may want {$classname} to live in a sub namespace. Which one ?"
             . ' Leave it empty if you want to leave it in root namespace.',
-            $domains?->all() ?? []
+            $this->wrapCallable($domains?->all() ?? [])
         );
     }
 }
