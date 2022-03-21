@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 trait AsksClass
 {
+    use WrapsCallable;
+
     /**
      * @param Collection<int, class-string> $classes
      */
@@ -22,7 +24,7 @@ trait AsksClass
 
         $class = $this->anticipate(
             $question,
-            $classes->merge($classes->map(fn (string $class) => class_basename($class)))->sort()->all()
+            $this->wrapCallable($classes->merge($classes->map(fn (string $class) => class_basename($class)))->sort()->all())
         );
 
         if ($classes->contains($class)) {

@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 trait AsksDomain
 {
+    use WrapsCallable;
+
     /**
      * @param \Illuminate\Support\Collection<int, string> $domains
      */
@@ -18,7 +20,7 @@ trait AsksDomain
 
         $this->showDomains($domains);
 
-        return $this->anticipate('What is the Domain ?', $domains->all());
+        return $this->anticipate('What is the Domain ?', $this->wrapCallable($domains->all()));
     }
 
     /**

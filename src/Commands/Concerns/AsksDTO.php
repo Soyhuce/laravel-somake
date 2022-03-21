@@ -19,7 +19,7 @@ trait AsksDTO
 
         $dto = $this->anticipate(
             'What is the DTO ?',
-            $dtos->merge($dtos->map(fn (string $dto) => class_basename($dto)))->sort()->all()
+            $this->wrapCallable($dtos->merge($dtos->map(fn (string $dto) => class_basename($dto)))->sort()->all())
         );
 
         if ($dtos->contains($dto)) {
