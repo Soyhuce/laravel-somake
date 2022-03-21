@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 trait AsksClass
 {
     /**
-     * @param Collection<int, string> $classes
+     * @param Collection<int, class-string> $classes
      */
     protected function askClass(string $question, Collection $classes): string
     {
@@ -40,6 +40,9 @@ trait AsksClass
         };
     }
 
+    /**
+     * @return class-string
+     */
     private function qualifyClass(string $question, string $class): string
     {
         if (class_exists($class)) {
@@ -51,7 +54,7 @@ trait AsksClass
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $guessedClasses
+     * @param \Illuminate\Support\Collection<int, class-string> $guessedClasses
      */
     private function disambiguateClass(Collection $guessedClasses): string
     {

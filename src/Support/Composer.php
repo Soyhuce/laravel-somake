@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Soyhuce\Somake\Exceptions\PSR4NamespaceNotFound;
 use Soyhuce\Somake\Exceptions\PSR4PathNotFound;
 use function dirname;
+use function is_bool;
 
 class Composer
 {
@@ -47,6 +48,7 @@ class Composer
 
         [$rootNamespace, $rootPath] = collect($this->classLoader->getPrefixesPsr4())
             ->map(fn ($paths, $root) => [$root, realpath($paths[0])])
+            ->filter(fn ($entry) => !is_bool($entry[1]))
             ->first(
                 fn ($entry) => Str::startsWith($path, $entry[1]),
                 fn () => throw PSR4PathNotFound::make($path)

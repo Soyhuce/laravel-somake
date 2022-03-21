@@ -3,6 +3,7 @@
 namespace Soyhuce\Somake\Domains\DTO;
 
 use Illuminate\Support\Collection;
+use LogicException;
 use ReflectionNamedType;
 use ReflectionProperty;
 use ReflectionUnionType;
@@ -20,19 +21,20 @@ class DTOProperty
     }
 
     /**
-     * @return \Illuminate\Support\Collection<string>
+     * @return \Illuminate\Support\Collection<int, ReflectionNamedType>
      */
     public function types(): Collection
     {
         $type = $this->property->getType();
 
         if (!$type) {
-            return collect();
+            return new Collection();
         }
 
         return match ($type::class) {
             ReflectionNamedType::class => collect([$type]),
             ReflectionUnionType::class => collect($type->getTypes()),
+            default => throw new LogicException($type::class . ' is not supported'),
         };
     }
 }

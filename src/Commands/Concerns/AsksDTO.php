@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 trait AsksDTO
 {
     /**
-     * @param \Illuminate\Support\Collection<string> $dtos
+     * @param \Illuminate\Support\Collection<int, class-string<\Spatie\DataTransferObject\DataTransferObject>> $dtos
      * @return class-string<\Spatie\DataTransferObject\DataTransferObject>
      */
     protected function askDTO(Collection $dtos): string
@@ -35,7 +35,10 @@ trait AsksDTO
         };
     }
 
-    private function qualifyDto(mixed $dto): string
+    /**
+     * @return class-string
+     */
+    private function qualifyDto(string $dto): string
     {
         if (class_exists($dto)) {
             return $dto;
@@ -46,7 +49,7 @@ trait AsksDTO
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $dtos
+     * @param \Illuminate\Support\Collection<int, class-string<\Spatie\DataTransferObject\DataTransferObject>> $dtos
      */
     private function disambiguateDtos(Collection $dtos): string
     {

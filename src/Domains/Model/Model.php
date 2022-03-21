@@ -12,6 +12,9 @@ class Model
 {
     private DocBlock $docBlock;
 
+    /**
+     * @param class-string<\Illuminate\Database\Eloquent\Model> $class
+     */
     public function __construct(
         public string $class,
     ) {
@@ -29,7 +32,7 @@ class Model
     }
 
     /**
-     * @return \Illuminate\Support\Collection<\Soyhuce\Somake\Domains\Model\Attribute>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\Model\Attribute>
      */
     public function factoryAttributes(): Collection
     {
@@ -43,7 +46,7 @@ class Model
     }
 
     /**
-     * @return \Illuminate\Support\Collection<\Soyhuce\Somake\Domains\Model\Attribute>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\Model\Attribute>
      */
     public function allAttributes(): Collection
     {
