@@ -8,7 +8,7 @@ use Symfony\Component\Process\Process;
 
 class FileOpener
 {
-    /** @var Collection<\Soyhuce\Somake\Support\FileWritten> */
+    /** @var Collection<int, \Soyhuce\Somake\Support\FileWritten> */
     protected Collection $events;
 
     public function __construct()

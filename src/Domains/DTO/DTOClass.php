@@ -8,6 +8,7 @@ use ReflectionProperty;
 
 class DTOClass
 {
+    /** @var ReflectionClass<\Spatie\DataTransferObject\DataTransferObject> */
     protected ReflectionClass $dtoClass;
 
     /**
@@ -27,7 +28,7 @@ class DTOClass
     }
 
     /**
-     * @return \Illuminate\Support\Collection<\Soyhuce\Somake\Domains\DTO\DTOProperty>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\DTO\DTOProperty>
      */
     public function properties(): Collection
     {

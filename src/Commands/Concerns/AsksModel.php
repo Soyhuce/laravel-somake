@@ -8,7 +8,8 @@ use Illuminate\Support\Str;
 trait AsksModel
 {
     /**
-     * @param \Illuminate\Support\Collection<string> $models
+     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
+     * @return class-string<\Illuminate\Database\Eloquent\Model>
      */
     protected function askModel(Collection $models): string
     {
@@ -41,7 +42,7 @@ trait AsksModel
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $models
+     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      */
     protected function showModels(Collection $models): void
     {
@@ -75,7 +76,7 @@ trait AsksModel
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $models
+     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      */
     private function disambiguateModel(Collection $models): string
     {

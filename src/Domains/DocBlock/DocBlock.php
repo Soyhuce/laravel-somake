@@ -3,6 +3,7 @@
 namespace Soyhuce\Somake\Domains\DocBlock;
 
 use Illuminate\Support\Collection;
+use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocChildNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use PHPStan\PhpDocParser\Lexer\Lexer;
 use PHPStan\PhpDocParser\Parser\ConstExprParser;
@@ -26,20 +27,22 @@ class DocBlock
     }
 
     /**
+     * @param class-string $class
      * @param array<string> $types
-     * @return \Illuminate\Support\Collection<\Soyhuce\Somake\Domains\DocBlock\DocTag>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\DocBlock\DocTag>
      */
     public function getTags(string $class, array $types): Collection
     {
         $phpDoc = $this->getClassDocBlock($class);
 
         if ($phpDoc === null) {
-            return collect();
+            return new Collection();
         }
 
         $docNode = $this->phpDocParser->parse(new TokenIterator($this->lexer->tokenize($phpDoc)));
 
         return collect($docNode->children)
+            ->filter(fn (PhpDocChildNode $node) => $node instanceof PhpDocTagNode)
             ->filter(fn (PhpDocTagNode $node) => in_array($node->name, $types))
             ->map(fn (PhpDocTagNode $node) => new DocTag($node->value->propertyName, (string) $node->value->type))
             ->values();

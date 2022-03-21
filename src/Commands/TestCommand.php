@@ -4,6 +4,7 @@ namespace Soyhuce\Somake\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
+use RuntimeException;
 use Soyhuce\Somake\Commands\Concerns\AsksClass;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
@@ -27,6 +28,7 @@ class TestCommand extends Command
             'Contract' => $this->handleContract($finder, $writer),
             'Feature' => $this->handleFeature($finder, $writer),
             'Unit' => $this->handleUnit($finder, $writer),
+            default => throw new RuntimeException('Unknown test type : ' . $type),
         };
 
         $this->info("The {$testFqcn} class was successfully created !");

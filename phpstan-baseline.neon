@@ -6,12 +6,12 @@ parameters:
 			path: config/somake.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) has parameter \\$models with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
@@ -21,12 +21,12 @@ parameters:
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) has parameter \\$models with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
@@ -36,17 +36,12 @@ parameters:
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$modelName of static method Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:resolveFactoryName\\(\\) expects class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, string given\\.$#"
-			count: 1
-			path: src/Commands/FactoryCommand.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) has parameter \\$models with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
@@ -56,7 +51,7 @@ parameters:
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askDTO\\(\\) has parameter \\$dtos with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askDTO\\(\\) should return class\\-string\\<Spatie\\\\DataTransferObject\\\\DataTransferObject\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/RequestCommand.php
 
@@ -71,12 +66,12 @@ parameters:
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) has parameter \\$models with generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
@@ -84,11 +79,6 @@ parameters:
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:disambiguateModel\\(\\) should return string but returns array\\|string\\.$#"
 			count: 1
 			path: src/Commands/ResourceCommand.php
-
-		-
-			message: "#^Match expression does not handle remaining value\\: string$#"
-			count: 1
-			path: src/Commands/TestCommand.php
 
 		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return string but returns array\\|bool\\|string\\.$#"
@@ -116,41 +106,6 @@ parameters:
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\DTO\\\\DTOClass\\:\\:properties\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Domains/DTO/DTOClass.php
-
-		-
-			message: "#^Property Soyhuce\\\\Somake\\\\Domains\\\\DTO\\\\DTOClass\\:\\:\\$dtoClass with generic class ReflectionClass does not specify its types\\: T$#"
-			count: 1
-			path: src/Domains/DTO/DTOClass.php
-
-		-
-			message: "#^Match expression does not handle remaining value\\: class\\-string\\<ReflectionType\\>$#"
-			count: 1
-			path: src/Domains/DTO/DTOProperty.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\DTO\\\\DTOProperty\\:\\:types\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Domains/DTO/DTOProperty.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\DTO\\\\DTOProperty\\:\\:types\\(\\) should return Illuminate\\\\Support\\\\Collection&iterable\\<string\\> but returns Illuminate\\\\Support\\\\Collection\\<int, ReflectionNamedType\\>\\.$#"
-			count: 1
-			path: src/Domains/DTO/DTOProperty.php
-
-		-
-			message: "#^Unable to resolve the template type TKey in call to function collect$#"
-			count: 1
-			path: src/Domains/DTO/DTOProperty.php
-
-		-
-			message: "#^Unable to resolve the template type TValue in call to function collect$#"
-			count: 1
-			path: src/Domains/DTO/DTOProperty.php
-
-		-
 			message: "#^Access to an undefined property PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocTagValueNode\\:\\:\\$propertyName\\.$#"
 			count: 1
 			path: src/Domains/DocBlock/DocBlock.php
@@ -161,94 +116,9 @@ parameters:
 			path: src/Domains/DocBlock/DocBlock.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\DocBlock\\\\DocBlock\\:\\:getTags\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocChildNode\\>\\:\\:filter\\(\\) expects \\(callable\\(PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocChildNode, \\(int\\|string\\)\\)\\: bool\\)\\|null, Closure\\(PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocTagNode\\)\\: bool given\\.$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocChildNode\\>\\:\\:map\\(\\) expects callable\\(PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocChildNode, \\(int\\|string\\)\\)\\: Soyhuce\\\\Somake\\\\Domains\\\\DocBlock\\\\DocTag, Closure\\(PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocTagNode\\)\\: Soyhuce\\\\Somake\\\\Domains\\\\DocBlock\\\\DocTag given\\.$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Parameter \\#1 \\$class of method Soyhuce\\\\Somake\\\\Domains\\\\DocBlock\\\\DocBlock\\:\\:getClassDocBlock\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Unable to resolve the template type TKey in call to function collect$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Unable to resolve the template type TValue in call to function collect$#"
-			count: 1
-			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\Model\\\\Model\\:\\:allAttributes\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Domains/Model/Model.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\Model\\\\Model\\:\\:factoryAttributes\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Domains/Model/Model.php
-
-		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\Request\\\\Ruler\\:\\:nestedRules\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int, mixed\\>\\.$#"
 			count: 1
 			path: src/Domains/Request/Ruler.php
-
-		-
-			message: "#^Parameter \\#1 \\$search of method Illuminate\\\\Support\\\\Stringable\\:\\:after\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: src/Support/Composer.php
-
-		-
-			message: "#^Parameter \\#2 \\$needles of static method Illuminate\\\\Support\\\\Str\\:\\:startsWith\\(\\) expects array\\<string\\>\\|string, bool\\|string given\\.$#"
-			count: 1
-			path: src/Support/Composer.php
-
-		-
-			message: "#^Property Soyhuce\\\\Somake\\\\Support\\\\FileOpener\\:\\:\\$events with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/FileOpener.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:applications\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:classes\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:controllers\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:dtos\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:findApplications\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Support\\\\Finder\\:\\:models\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Support/Finder.php
 
 		-
 			message: "#^Parameter \\#1 \\$view of function view expects view\\-string\\|null, string given\\.$#"
