@@ -15,6 +15,7 @@ use Soyhuce\Somake\Commands\MiddlewareCommand;
 use Soyhuce\Somake\Commands\MigrationCommand;
 use Soyhuce\Somake\Commands\ModelCommand;
 use Soyhuce\Somake\Commands\PolicyCommand;
+use Soyhuce\Somake\Commands\ProviderCommand;
 use Soyhuce\Somake\Commands\RequestCommand;
 use Soyhuce\Somake\Commands\ResourceCommand;
 use Soyhuce\Somake\Commands\TestCommand;
@@ -44,6 +45,7 @@ class SomakeServiceProvider extends PackageServiceProvider
                 MigrationCommand::class,
                 ModelCommand::class,
                 PolicyCommand::class,
+                ProviderCommand::class,
                 RequestCommand::class,
                 ResourceCommand::class,
                 TestCommand::class,
