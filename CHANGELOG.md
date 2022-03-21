@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.1.1 - 2022-03-21
+
+## What's Changed
+
+- Fix callable in anticipate by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/8
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2022-03-21
 
 ## What's Changed
