@@ -19,13 +19,13 @@ composer require --dev soyhuce/laravel-somake
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-somake-config"
+php artisan vendor:publish --tag="somake-config"
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-somake-views"
+php artisan vendor:publish --tag="somake-views"
 ```
 
 ## Usage
