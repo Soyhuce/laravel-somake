@@ -1,13 +1,9 @@
 namespace {{ $namespace }};
 
-use {{ $model->class }};
 use {{ $baseClass }};
 
 class {{ $className }} extends {{ $baseClassName }}
 {
-    /** @@var string */
-    protected $model = {{ $model->getName() }}::class;
-
     /**
      * @@return array<string, mixed>
      */
