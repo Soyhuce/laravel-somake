@@ -21,7 +21,7 @@ class EnumCommand extends Command
     {
         $enum = $this->ask('What is the Enum name ?');
 
-        if ($this->confirm('Do you want it to be in a Domain ? Say no if you want it in Support')) {
+        if ($this->confirm('Do you want it to be in a Domain ? Say no if you want it in Support', true)) {
             $domain = $this->askDomain($finder->domains());
             $enumFqcn = "Domain\\{$domain}\\Enums\\{$enum}";
         } else {
