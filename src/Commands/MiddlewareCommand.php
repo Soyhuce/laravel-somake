@@ -23,7 +23,7 @@ class MiddlewareCommand extends Command
     {
         $middleware = $this->ask('What is the Middleware name ?');
 
-        $middlewareFqcn = $this->confirm('Do you want it to be in an Application ? Say no if you want it in Support')
+        $middlewareFqcn = $this->confirm('Do you want it to be in an Application ? Say no if you want it in Support', true)
             ? $this->inApplication($finder, $middleware)
             : $this->inSupport($middleware);
 
