@@ -8,8 +8,6 @@ use ReflectionMethod;
 
 trait AsksMethod
 {
-    public static string $UNDEFINED_METHOD = 'defineMe';
-
     /**
      * @param class-string $class
      */
@@ -23,6 +21,6 @@ trait AsksMethod
             ->map(fn (ReflectionMethod $method) => $method->getName())
             ->sort();
 
-        return $this->anticipate($question, $this->wrapCallable($methods->all())) ?? static::$UNDEFINED_METHOD;
+        return $this->anticipate($question, $this->wrapCallable($methods->all())) ?? 'defineMe';
     }
 }
