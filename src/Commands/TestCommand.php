@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use RuntimeException;
 use Soyhuce\Somake\Commands\Concerns\AsksClass;
+use Soyhuce\Somake\Commands\Concerns\AsksMethod;
+use Soyhuce\Somake\Domains\Request\UrlGuesser;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function in_array;
@@ -13,6 +15,7 @@ use function in_array;
 class TestCommand extends Command
 {
     use AsksClass;
+    use AsksMethod;
 
     /** @var string */
     public $signature = 'somake:test {--type=} {--class=}';
@@ -37,6 +40,7 @@ class TestCommand extends Command
     private function handleContract(Finder $finder, Writer $writer): string
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
+        $method = $this->askMethod('Which method do you want to cover ?', $controller);
         $testName = $this->ask('What is the Test name ?');
 
         $testClass = sprintf(
@@ -45,7 +49,10 @@ class TestCommand extends Command
             $testName
         );
 
-        $writer->write($this->stubFile('contract'), ['coveredClass' => $controller])
+        $writer->write(
+            $this->stubFile('contract'),
+            ['coveredClass' => $controller, 'coveredMethod' => $method, 'url' => $this->urlFor($controller, $method)]
+        )
             ->withBaseClass(config('somake.base_classes.test_contract'))
             ->toClass($testClass);
 
@@ -55,6 +62,7 @@ class TestCommand extends Command
     private function handleFeature(Finder $finder, Writer $writer): string
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
+        $method = $this->askMethod('Which method do you want to cover ?', $controller);
         $testName = $this->ask('What is the Test name ?');
 
         $testClass = sprintf(
@@ -63,7 +71,10 @@ class TestCommand extends Command
             $testName
         );
 
-        $writer->write($this->stubFile('feature'), ['coveredClass' => $controller])
+        $writer->write(
+            $this->stubFile('feature'),
+            ['coveredClass' => $controller, 'coveredMethod' => $method, 'url' => $this->urlFor($controller, $method)]
+        )
             ->withBaseClass(config('somake.base_classes.test_feature'))
             ->toClass($testClass);
 
@@ -101,5 +112,10 @@ class TestCommand extends Command
         }
 
         return "test-{$type}";
+    }
+
+    private function urlFor(string $controller, string $method): string
+    {
+        return (new UrlGuesser($controller, $method))->guess();
     }
 }

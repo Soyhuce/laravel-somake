@@ -15,5 +15,7 @@ class ShowVideoTest extends FeatureTestCase
      */
     public function simple(): void
     {
+        $this->getJson("/")
+            ->assertOk();
     }
 }

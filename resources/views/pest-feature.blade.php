@@ -1,6 +1,6 @@
-/* @@covers \{{ $coveredClass }}::defineMe */
+/* @@covers \{{ $coveredClass }}::{{ $coveredMethod }} */
 
 it('is successful', function (): void {
-    $this->get('/')
+    $this->getJson("{{ $url }}")
         ->assertOk();
 });

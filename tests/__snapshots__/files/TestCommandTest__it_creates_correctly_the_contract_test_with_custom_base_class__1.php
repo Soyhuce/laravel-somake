@@ -15,5 +15,7 @@ class ContractShowVideoTest extends ContractTestCase
      */
     public function success(): void
     {
+        $this->getJson("/")
+            ->assertValidContract(200);
     }
 }

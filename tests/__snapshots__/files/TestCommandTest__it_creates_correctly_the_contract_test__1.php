@@ -11,9 +11,11 @@ class ContractShowVideoTest extends TestCase
 {
     /**
      * @test
-     * @covers ::defineMe
+     * @covers ::show
      */
     public function success(): void
     {
+        $this->getJson("/api/videos/{$video}")
+            ->assertValidContract(200);
     }
 }

@@ -7,7 +7,7 @@ use Tests\TestCase;
 /**
  * @coversDefaultClass \App\Website\Videos\Controllers\VideoController
  */
-class ShowVideoTest extends TestCase
+class IndexVideosTest extends TestCase
 {
     /**
      * @test

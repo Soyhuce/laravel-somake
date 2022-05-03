@@ -1,6 +1,6 @@
-/* @@covers \{{ $coveredClass }}::defineMe */
+/* @@covers \{{ $coveredClass }}::{{ $coveredMethod }} */
 
 it('respects success contract', function (): void {
-    $this->get('/')
+    $this->getJson("{{ $url }}")
         ->assertValidContract(200);
 });
