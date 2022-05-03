@@ -8,6 +8,7 @@ use RuntimeException;
 use Soyhuce\Somake\Commands\Concerns\AsksClass;
 use Soyhuce\Somake\Commands\Concerns\AsksMethod;
 use Soyhuce\Somake\Domains\Request\RouteGuesser;
+use Soyhuce\Somake\Domains\Test\TestNameGuesser;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function in_array;
@@ -41,7 +42,7 @@ class TestCommand extends Command
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
         $method = $this->askMethod('Which method do you want to cover ?', $controller);
-        $testName = $this->ask('What is the Test name ?');
+        $testName = $this->ask('What is the Test name ?', (new TestNameGuesser())->guess($controller, $method));
 
         $testClass = sprintf(
             'Tests\\Contract\\%s\\%s',
@@ -66,7 +67,7 @@ class TestCommand extends Command
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
         $method = $this->askMethod('Which method do you want to cover ?', $controller);
-        $testName = $this->ask('What is the Test name ?');
+        $testName = $this->ask('What is the Test name ?', (new TestNameGuesser())->guess($controller, $method));
 
         $testClass = sprintf(
             'Tests\\Feature\\%s\\%s',
