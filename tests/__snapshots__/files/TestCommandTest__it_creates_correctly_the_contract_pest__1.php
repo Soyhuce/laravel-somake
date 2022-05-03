@@ -1,8 +1,8 @@
 <?php
 
-/* @covers \App\Website\Videos\Controllers\VideoController::defineMe */
+/* @covers \App\Website\Videos\Controllers\VideoController::show */
 
 it('respects success contract', function (): void {
-    $this->get('/')
+    $this->getJson("/api/videos/{$video}")
         ->assertValidContract(200);
 });

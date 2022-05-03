@@ -9,9 +9,11 @@ class {{ $className }} extends {{ $baseClassName }}
 {
     /**
      * @@test
-     * @@covers ::defineMe
+     * @@covers ::{{ $coveredMethod }}
      */
     public function simple(): void
     {
+        $this->getJson("{{ $url }}")
+            ->assertOk();
     }
 }
