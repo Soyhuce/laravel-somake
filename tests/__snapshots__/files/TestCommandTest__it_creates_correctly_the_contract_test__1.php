@@ -7,15 +7,15 @@ use Tests\TestCase;
 /**
  * @coversDefaultClass \App\Website\Videos\Controllers\VideoController
  */
-class ContractShowVideoTest extends TestCase
+class ContractUpdateVideoTest extends TestCase
 {
     /**
      * @test
-     * @covers ::show
+     * @covers ::update
      */
     public function success(): void
     {
-        $this->getJson("/api/videos/{$video}")
+        $this->putJson("api/videos/{$video}")
             ->assertValidContract(200);
     }
 }

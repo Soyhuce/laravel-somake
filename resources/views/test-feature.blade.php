@@ -13,7 +13,7 @@ class {{ $className }} extends {{ $baseClassName }}
      */
     public function simple(): void
     {
-        $this->getJson("{{ $url }}")
+        $this->{{ $verb }}Json("{{ $url }}")
             ->assertOk();
     }
 }

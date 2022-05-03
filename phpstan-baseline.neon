@@ -81,12 +81,12 @@ parameters:
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return string but returns array\\|bool\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return string but returns string\\|null\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/TestCommand.php
 
