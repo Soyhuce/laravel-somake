@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use RuntimeException;
 use Soyhuce\Somake\Commands\Concerns\AsksClass;
 use Soyhuce\Somake\Commands\Concerns\AsksMethod;
-use Soyhuce\Somake\Domains\Request\UrlGuesser;
+use Soyhuce\Somake\Domains\Request\RouteGuesser;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function in_array;
@@ -48,11 +48,14 @@ class TestCommand extends Command
             Str::of($controller)->after('App\\')->replace('\\Controllers\\', '\\')->replaceLast('Controller', ''),
             $testName
         );
+        $routeGuesser = new RouteGuesser($controller, $method);
 
-        $writer->write(
-            $this->stubFile('contract'),
-            ['coveredClass' => $controller, 'coveredMethod' => $method, 'url' => $this->urlFor($controller, $method)]
-        )
+        $writer->write($this->stubFile('contract'), [
+            'coveredClass' => $controller,
+            'coveredMethod' => $method,
+            'url' => $routeGuesser->url(),
+            'verb' => $routeGuesser->verb(),
+        ])
             ->withBaseClass(config('somake.base_classes.test_contract'))
             ->toClass($testClass);
 
@@ -70,11 +73,14 @@ class TestCommand extends Command
             Str::of($controller)->after('App\\')->replace('\\Controllers\\', '\\'),
             $testName
         );
+        $routeGuesser = new RouteGuesser($controller, $method);
 
-        $writer->write(
-            $this->stubFile('feature'),
-            ['coveredClass' => $controller, 'coveredMethod' => $method, 'url' => $this->urlFor($controller, $method)]
-        )
+        $writer->write($this->stubFile('feature'), [
+            'coveredClass' => $controller,
+            'coveredMethod' => $method,
+            'url' => $routeGuesser->url(),
+            'verb' => $routeGuesser->verb(),
+        ])
             ->withBaseClass(config('somake.base_classes.test_feature'))
             ->toClass($testClass);
 
@@ -112,10 +118,5 @@ class TestCommand extends Command
         }
 
         return "test-{$type}";
-    }
-
-    private function urlFor(string $controller, string $method): string
-    {
-        return (new UrlGuesser($controller, $method))->guess();
     }
 }

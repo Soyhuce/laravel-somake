@@ -4,13 +4,13 @@ it('creates correctly the contract test', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-        ->expectsQuestion('Which method do you want to cover ?', 'show')
-        ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
-        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->expectsQuestion('Which method do you want to cover ?', 'update')
+        ->expectsQuestion('What is the Test name ?', 'ContractUpdateVideoTest')
+        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractUpdateVideoTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'))
+    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractUpdateVideoTest.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
@@ -38,13 +38,13 @@ it('creates correctly the contract pest', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-        ->expectsQuestion('Which method do you want to cover ?', 'show')
-        ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
-        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->expectsQuestion('Which method do you want to cover ?', 'update')
+        ->expectsQuestion('What is the Test name ?', 'ContractUpdateVideoTest')
+        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractUpdateVideoTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractShowVideoTest.php'))
+    expect($this->app->basePath('tests/Contract/Website/Videos/Video/ContractUpdateVideoTest.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });

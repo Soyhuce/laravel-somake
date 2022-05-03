@@ -11,6 +11,7 @@ trait AsksClass
 
     /**
      * @param Collection<int, class-string> $classes
+     * @return class-string
      */
     protected function askClass(string $question, Collection $classes): string
     {
