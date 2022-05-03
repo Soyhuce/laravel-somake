@@ -85,7 +85,7 @@ it('creates correctly the feature test with unknown method', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
-        ->expectsQuestion('Which method do you want to cover ?', null)
+        ->expectsQuestion('Which method do you want to cover ?', 'index')
         ->expectsQuestion('What is the Test name ?', 'IndexVideosTest')
         ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\IndexVideosTest class was successfully created !')
         ->assertExitCode(0)

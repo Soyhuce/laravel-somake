@@ -11,7 +11,7 @@ class IndexVideosTest extends TestCase
 {
     /**
      * @test
-     * @covers ::defineMe
+     * @covers ::index
      */
     public function simple(): void
     {
