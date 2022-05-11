@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.2.1 - 2022-05-11
+
+## What's Changed
+
+- Don't use HandlesAuthorization when policy uses custom base class by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/15
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.2.0...1.2.1
+
 ## 1.2.0 - 2022-05-03
 
 ## What's Changed
