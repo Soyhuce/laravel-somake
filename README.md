@@ -36,12 +36,12 @@ The configuration of generated classes is done via interactive questions.
 
 ### App
 
-| Commande            | Description | Generation path                                  |
-|---------------------|-------------|--------------------------------------------------|
-| `somake:command`    | Commande    | `app/App/Commands`                               |
+| Commande            | Description | Generation path                                 |
+|---------------------|-------------|-------------------------------------------------|
+| `somake:command`    | Commande    | `app/App/Commands`                              |
 | `somake:controller` | Controller  | `app/App/[application]/Controllers/[namespace?]` |
-| `somake:middleware` | Middleware  | `app/App/[application]/Middlewares/[namespace?]` |
-| `somake:request`    | Request     | `app/App/[application]/Requests/[namespace?]`    |
+| `somake:middleware` | Middleware  | `app/App/[application]/Middleware/[namespace?]` |
+| `somake:request`    | Request     | `app/App/[application]/Requests/[namespace?]`   |
 | `somake:resource`   | Resource    | `app/App/[application]/Resources/[model domain]` |
 
 ### Domain
@@ -57,11 +57,11 @@ The configuration of generated classes is done via interactive questions.
 
 ### Support
 
-| Commande            | Description      | Generation path                             |
-|---------------------|------------------|---------------------------------------------|
-| `somake:enum`       | Enum             | `app/Support/Enums`                         |
-| `somake:middleware` | Middleware       | `app/Support/Http/Middlewares/[namespace?]` |
-| `somake:provider`   | Service Provider | `app/Support/Providers`                     |
+| Commande            | Description      | Generation path                            |
+|---------------------|------------------|--------------------------------------------|
+| `somake:enum`       | Enum             | `app/Support/Enums`                        |
+| `somake:middleware` | Middleware       | `app/Support/Http/Middleware/[namespace?]` |
+| `somake:provider`   | Service Provider | `app/Support/Providers`                    |
 
 ### Other
 
