@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.2.3 - 2022-08-11
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.1 to 1.3.3 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/17
+- Fix middleware destination by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/18
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.2.2...1.2.3
+
 ## 1.2.2 - 2022-06-17
 
 ### What's Changed
