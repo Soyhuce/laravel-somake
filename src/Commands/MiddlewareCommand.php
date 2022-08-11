@@ -42,10 +42,10 @@ class MiddlewareCommand extends Command
         $namespace = $this->askOptionalNamespace($middleware, $finder->domains());
 
         if ($namespace === null) {
-            return "App\\{$applicationNamespace}\\Middlewares\\{$middleware}";
+            return "App\\{$applicationNamespace}\\Middleware\\{$middleware}";
         }
 
-        return "App\\{$applicationNamespace}\\Middlewares\\{$namespace}\\{$middleware}";
+        return "App\\{$applicationNamespace}\\Middleware\\{$namespace}\\{$middleware}";
     }
 
     private function inSupport(string $middleware): string
@@ -53,9 +53,9 @@ class MiddlewareCommand extends Command
         $namespace = $this->askOptionalNamespace($middleware);
 
         if ($namespace === null) {
-            return "Support\\Http\\Middlewares\\{$middleware}";
+            return "Support\\Http\\Middleware\\{$middleware}";
         }
 
-        return "Support\\Http\\Middlewares\\{$namespace}\\{$middleware}";
+        return "Support\\Http\\Middleware\\{$namespace}\\{$middleware}";
     }
 }
