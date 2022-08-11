@@ -11,12 +11,12 @@ it('create the middleware correctly', function (): void {
             'You may want FilterUnpublished to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             null
         )
-        ->expectsOutput('The App\\Website\\Blog\\Middlewares\\FilterUnpublished class was successfully created !')
-        ->expectsQuestion('Do you want to create a Unit Test for App\\Website\\Blog\\Middlewares\\FilterUnpublished ?', false)
+        ->expectsOutput('The App\\Website\\Blog\\Middleware\\FilterUnpublished class was successfully created !')
+        ->expectsQuestion('Do you want to create a Unit Test for App\\Website\\Blog\\Middleware\\FilterUnpublished ?', false)
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('app/App/Website/Blog/Middlewares/FilterUnpublished.php'))
+    expect($this->app->basePath('app/App/Website/Blog/Middleware/FilterUnpublished.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
@@ -32,12 +32,12 @@ it('allows the middleware to be created in a sub namespace', function (): void {
             'You may want OnlySuperAdmin to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             'Auth'
         )
-        ->expectsOutput('The App\\Admin\\Middlewares\\Auth\\OnlySuperAdmin class was successfully created !')
-        ->expectsQuestion('Do you want to create a Unit Test for App\\Admin\\Middlewares\\Auth\\OnlySuperAdmin ?', false)
+        ->expectsOutput('The App\\Admin\\Middleware\\Auth\\OnlySuperAdmin class was successfully created !')
+        ->expectsQuestion('Do you want to create a Unit Test for App\\Admin\\Middleware\\Auth\\OnlySuperAdmin ?', false)
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('app/App/Admin/Middlewares/Auth/OnlySuperAdmin.php'))
+    expect($this->app->basePath('app/App/Admin/Middleware/Auth/OnlySuperAdmin.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
@@ -50,12 +50,12 @@ it('create the middleware correctly in support', function (): void {
             'You may want FilterUnpublished to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             null
         )
-        ->expectsOutput('The Support\\Http\\Middlewares\\FilterUnpublished class was successfully created !')
-        ->expectsQuestion('Do you want to create a Unit Test for Support\\Http\\Middlewares\\FilterUnpublished ?', false)
+        ->expectsOutput('The Support\\Http\\Middleware\\FilterUnpublished class was successfully created !')
+        ->expectsQuestion('Do you want to create a Unit Test for Support\\Http\\Middleware\\FilterUnpublished ?', false)
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('app/Support/Http/Middlewares/FilterUnpublished.php'))
+    expect($this->app->basePath('app/Support/Http/Middleware/FilterUnpublished.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
@@ -68,12 +68,12 @@ it('allows the middleware to be created in a sub namespace of support', function
             'You may want OnlySuperAdmin to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             'Auth'
         )
-        ->expectsOutput('The Support\\Http\\Middlewares\\Auth\\OnlySuperAdmin class was successfully created !')
-        ->expectsQuestion('Do you want to create a Unit Test for Support\\Http\\Middlewares\\Auth\\OnlySuperAdmin ?', false)
+        ->expectsOutput('The Support\\Http\\Middleware\\Auth\\OnlySuperAdmin class was successfully created !')
+        ->expectsQuestion('Do you want to create a Unit Test for Support\\Http\\Middleware\\Auth\\OnlySuperAdmin ?', false)
         ->assertExitCode(0)
         ->execute();
 
-    expect($this->app->basePath('app/Support/Http/Middlewares/Auth/OnlySuperAdmin.php'))
+    expect($this->app->basePath('app/Support/Http/Middleware/Auth/OnlySuperAdmin.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
