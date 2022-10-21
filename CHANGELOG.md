@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.3.0 - 2022-10-21
+
+### What's Changed
+
+- Bump actions/checkout from 2 to 3 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/19
+- Bump dependabot/fetch-metadata from 1.3.3 to 1.3.4 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/20
+- Run tests on PHP 8.2 by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/21
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.2.3...1.3.0
+
 ## 1.2.3 - 2022-08-11
 
 ### What's Changed
