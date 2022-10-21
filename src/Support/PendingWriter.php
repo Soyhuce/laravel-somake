@@ -42,7 +42,7 @@ class PendingWriter
     public function withBaseClass(?string $baseClass): static
     {
         $this->data->put('baseClass', $baseClass);
-        $this->data->put('baseClassName', optional($baseClass, fn (string $class) => class_basename($class)));
+        $this->data->put('baseClassName', $baseClass == null  ? null :  class_basename($baseClass));
 
         return $this;
     }
