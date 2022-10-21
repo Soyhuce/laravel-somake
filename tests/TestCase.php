@@ -2,6 +2,7 @@
 
 namespace Soyhuce\Somake\Tests;
 
+use Illuminate\Foundation\Testing\Concerns\InteractsWithDeprecationHandling;
 use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Soyhuce\Somake\SomakeServiceProvider;
@@ -12,9 +13,13 @@ use Support\BaseApplication;
  */
 class TestCase extends Orchestra
 {
+    use InteractsWithDeprecationHandling;
+
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->withoutDeprecationHandling();
 
         if (method_exists($this, 'bootApplicationRestoration')) {
             $this->bootApplicationRestoration();
