@@ -50,6 +50,7 @@ The configuration of generated classes is done via interactive questions.
 |------------------|----------------------|--------------------------------|
 | `somake:action`  | Action               | `app/Domain/[domain]/Actions`  |
 | `somake:builder` | Eloquent Builder     | `app/Domain/[domain]/Builders` |
+| `somake:data`    | Data                 | `app/Domain/[domain]/Data`     |
 | `somake:dto`     | Data Transfer Object | `app/Domain/[domain]/DTO`      |
 | `somake:enum`    | Enum                 | `app/Domain/[domain]/Enums`    |
 | `somake:model`   | Model                | `app/Domain/[domain]/Models`   |
