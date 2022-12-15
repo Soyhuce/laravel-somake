@@ -8,6 +8,7 @@ use Soyhuce\Somake\Commands\ActionCommand;
 use Soyhuce\Somake\Commands\BuilderCommand;
 use Soyhuce\Somake\Commands\CommandCommand;
 use Soyhuce\Somake\Commands\ControllerCommand;
+use Soyhuce\Somake\Commands\DataCommand;
 use Soyhuce\Somake\Commands\DtoCommand;
 use Soyhuce\Somake\Commands\EnumCommand;
 use Soyhuce\Somake\Commands\FactoryCommand;
@@ -38,6 +39,7 @@ class SomakeServiceProvider extends PackageServiceProvider
                 BuilderCommand::class,
                 CommandCommand::class,
                 ControllerCommand::class,
+                DataCommand::class,
                 DtoCommand::class,
                 EnumCommand::class,
                 FactoryCommand::class,
