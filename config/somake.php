@@ -11,6 +11,7 @@ return [
         'command' => Illuminate\Console\Command::class,
         'controller' => null,
         'dto' => Spatie\DataTransferObject\DataTransferObject::class,
+        'data' => Spatie\LaravelData\Data::class,
         'factory' => Illuminate\Database\Eloquent\Factories\Factory::class,
         'model' => Illuminate\Database\Eloquent\Model::class,
         'policy' => null,
