@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
 it('creates correctly the contract test', function (): void {
-    file_put_contents(base_path('tests/Pest.php'), '');
-
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Contract')
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
@@ -18,8 +16,6 @@ it('creates correctly the contract test', function (): void {
 });
 
 it('creates correctly the feature test', function (): void {
-    file_put_contents(base_path('tests/Pest.php'), '');
-
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
@@ -65,8 +61,6 @@ it('creates correctly the feature test with invokable controller', function (): 
 });
 
 it('creates correctly the unit test', function (): void {
-    file_put_contents(base_path('tests/Pest.php'), '');
-
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
         ->expectsQuestion('Which class do you want to cover ?', 'User')
@@ -75,6 +69,19 @@ it('creates correctly the unit test', function (): void {
         ->execute();
 
     expect($this->app->basePath('tests/Unit/Domain/User/Models/UserTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
+
+it('creates correctly the unit test for form request', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'UpdateVideoRequest')
+        ->expectsOutput('The Tests\\Unit\\App\\Website\\Videos\\Requests\\UpdateVideoRequestTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
+
+    expect($this->app->basePath('tests/Unit/App/Website/Videos/Requests/UpdateVideoRequestTest.php'))
         ->toBeFile()
         ->toMatchFileSnapshot();
 });

@@ -5,7 +5,6 @@ namespace Soyhuce\Somake\Support;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use Soyhuce\Somake\Exceptions\PSR4NamespaceNotFound;
 use Soyhuce\Somake\Exceptions\PSR4PathNotFound;
 use function dirname;
@@ -109,10 +108,10 @@ class PendingWriter
     private function fileContent(bool $withHeader = true): string
     {
         if (!$withHeader) {
-            return view("somake::{$this->stub}", $this->data)->render();
+            return Str::removeExtraBlankLines(view("somake::{$this->stub}", $this->data)->render());
         }
 
-        return $this->phpHeader() . view("somake::{$this->stub}", $this->data)->render();
+        return Str::removeExtraBlankLines($this->phpHeader() . view("somake::{$this->stub}", $this->data)->render());
     }
 
     private function phpHeader(): string

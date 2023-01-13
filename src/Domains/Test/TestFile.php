@@ -6,6 +6,9 @@ class TestFile
 {
     public ?string $covers = null;
 
+    /** @var array<int, string> */
+    public array $uses = [];
+
     /** @var array<int, \Soyhuce\Somake\Domains\Test\TestFunction> */
     public array $tests = [];
 
@@ -25,6 +28,7 @@ class TestFile
     {
         return [
             'covers' => $this->covers,
+            'uses' => $this->uses,
             'tests' => $this->tests,
         ];
     }
@@ -32,6 +36,13 @@ class TestFile
     public function covers(string $covers): static
     {
         $this->covers = $covers;
+
+        return $this;
+    }
+
+    public function uses(string $use): static
+    {
+        $this->uses[] = $use;
 
         return $this;
     }

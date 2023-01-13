@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+use Soyhuce\Somake\Domains\Test\UnitTestGenerators\DefaultTestGenerator;
+use Soyhuce\Somake\Domains\Test\UnitTestGenerators\FormRequestTestGenerator;
+
 return [
     // Provide the path to your IDE and this package will open
     // newly created files automatically.
@@ -17,5 +20,10 @@ return [
         'policy' => null,
         'request' => Illuminate\Foundation\Http\FormRequest::class,
         'resource' => Illuminate\Http\Resources\Json\JsonResource::class,
+    ],
+
+    'test_generators' => [
+        FormRequestTestGenerator::class,
+        DefaultTestGenerator::class,
     ],
 ];
