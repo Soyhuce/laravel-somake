@@ -114,10 +114,6 @@ class TestCommand extends Command
 
     private function stubFile(string $type): string
     {
-        if (is_file(base_path('tests/Pest.php'))) {
-            return "pest-{$type}";
-        }
-
-        return "test-{$type}";
+        return "pest-{$type}";
     }
 }
