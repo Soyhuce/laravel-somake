@@ -1,21 +1,8 @@
 <?php
 
-namespace Tests\Feature\Website\Videos\VideoController;
+/* @covers \App\Website\Videos\Controllers\VideoController::defineMe */
 
-use Tests\TestCase;
-
-/**
- * @coversDefaultClass \App\Website\Videos\Controllers\VideoController
- */
-class ShowVideoTest extends TestCase
-{
-    /**
-     * @test
-     * @covers ::defineMe
-     */
-    public function simple(): void
-    {
-        $this->getJson("/")
-            ->assertOk();
-    }
-}
+it('is successful', function (): void {
+    $this->getJson("/")
+        ->assertOk();
+});
