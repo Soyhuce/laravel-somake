@@ -5,8 +5,11 @@ namespace Soyhuce\Somake\Commands;
 use Composer\InstalledVersions;
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\AsksApplication;
+use Soyhuce\Somake\Commands\Concerns\AsksData;
 use Soyhuce\Somake\Commands\Concerns\AsksDTO;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
+use Soyhuce\Somake\Domains\Data\DataClass;
+use Soyhuce\Somake\Domains\Data\DataProperty;
 use Soyhuce\Somake\Domains\DTO\DTOClass;
 use Soyhuce\Somake\Domains\DTO\DTOProperty;
 use Soyhuce\Somake\Domains\Request\Ruler;
@@ -17,6 +20,7 @@ class RequestCommand extends Command
 {
     use AsksApplication;
     use AsksDTO;
+    use AsksData;
     use CreatesAssociatedUnitTest;
 
     /** @var string */
@@ -58,19 +62,26 @@ class RequestCommand extends Command
      */
     private function resolveFields(Finder $finder, Ruler $ruler): array
     {
-        if (!InstalledVersions::isInstalled('spatie/data-transfer-object')) {
+        if (!$this->confirm('Do you want to fill the request with fields from a DTO/Data ?', true)) {
             return [];
         }
 
-        if (!$this->confirm('Do you want to fill the request with fields from a DTO ?', true)) {
-            return [];
+        if (InstalledVersions::isInstalled('spatie/data-transfer-object')) {
+            $dto = $this->askDTO($finder->dtos());
+            return DTOClass::from($dto)
+                ->properties()
+                ->flatMap(fn(DTOProperty $property) => $ruler->getRules($property))
+                ->all();
         }
 
-        $dto = $this->askDTO($finder->dtos());
+        if (InstalledVersions::isInstalled('spatie/laravel-data')) {
+            $data = $this->askData($finder->datas());
+            return DataClass::from($data)
+                ->properties()
+                ->flatMap(fn(DataProperty $property) => $ruler->getRules($property))
+                ->all();
+        }
 
-        return DTOClass::from($dto)
-            ->properties()
-            ->flatMap(fn (DTOProperty $property) => $ruler->getRules($property))
-            ->all();
+        return [];
     }
 }

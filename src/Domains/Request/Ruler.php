@@ -5,6 +5,7 @@ namespace Soyhuce\Somake\Domains\Request;
 use Countable;
 use DateTimeInterface;
 use ReflectionNamedType;
+use Soyhuce\Somake\Domains\Data\DataProperty;
 use Soyhuce\Somake\Domains\DTO\DTOClass;
 use Soyhuce\Somake\Domains\DTO\DTOProperty;
 use function function_exists;
@@ -14,7 +15,7 @@ class Ruler
     /**
      * @return array<string, array<string>>
      */
-    public function getRules(DTOProperty $property): array
+    public function getRules(DTOProperty|DataProperty $property): array
     {
         $types = $property->types();
         if ($types->isEmpty() || $types->count() > 1) {
