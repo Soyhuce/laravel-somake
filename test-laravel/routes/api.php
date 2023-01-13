@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Website\Videos\Controllers\InvokableVideoController;
 use App\Website\Videos\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::put('videos/{video}', [VideoController::class, 'update']);
+Route::get('videos/{video}', [VideoController::class, 'show']);
+Route::put('videos-invokable/{video}', InvokableVideoController::class);
