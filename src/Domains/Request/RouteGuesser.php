@@ -13,7 +13,9 @@ class RouteGuesser
 
     public function __construct(string $controller, string $method)
     {
-        $this->route = RouteFacade::getRoutes()->getByAction("{$controller}@{$method}");
+        $action = $method === '__invoke' ? $controller : $controller . '@' . $method;
+
+        $this->route = RouteFacade::getRoutes()->getByAction($action);
     }
 
     public function verb(): string

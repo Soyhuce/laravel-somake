@@ -1,8 +1,8 @@
 <?php
 
-/* @covers \App\Website\Videos\Controllers\VideoController::defineMe */
+/* @covers \App\Website\Videos\Controllers\VideoController::show */
 
 it('is successful', function (): void {
-    $this->getJson("/")
+    $this->getJson("api/videos/{$video}")
         ->assertOk();
 });
