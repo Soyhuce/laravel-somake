@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Soyhuce\ClassMapGenerator\ClassMapGenerator;
 use Spatie\DataTransferObject\DataTransferObject;
-use Spatie\LaravelData\Data;
 use Throwable;
 
 class Finder

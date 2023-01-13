@@ -19,8 +19,8 @@ use Soyhuce\Somake\Support\Writer;
 class RequestCommand extends Command
 {
     use AsksApplication;
-    use AsksDTO;
     use AsksData;
+    use AsksDTO;
     use CreatesAssociatedUnitTest;
 
     /** @var string */
@@ -68,17 +68,19 @@ class RequestCommand extends Command
 
         if (InstalledVersions::isInstalled('spatie/data-transfer-object')) {
             $dto = $this->askDTO($finder->dtos());
+
             return DTOClass::from($dto)
                 ->properties()
-                ->flatMap(fn(DTOProperty $property) => $ruler->getRules($property))
+                ->flatMap(fn (DTOProperty $property) => $ruler->getRules($property))
                 ->all();
         }
 
         if (InstalledVersions::isInstalled('spatie/laravel-data')) {
             $data = $this->askData($finder->datas());
+
             return DataClass::from($data)
                 ->properties()
-                ->flatMap(fn(DataProperty $property) => $ruler->getRules($property))
+                ->flatMap(fn (DataProperty $property) => $ruler->getRules($property))
                 ->all();
         }
 
