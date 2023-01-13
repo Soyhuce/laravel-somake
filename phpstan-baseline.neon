@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Class Spatie\\\\LaravelData\\\\Data not found\\.$#"
-			count: 1
-			path: config/somake.php
-
-		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php
@@ -61,11 +56,6 @@ parameters:
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:resolveFields\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int, mixed\\>\\.$#"
-			count: 1
-			path: src/Commands/RequestCommand.php
-
-		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/ResourceCommand.php
@@ -114,11 +104,6 @@ parameters:
 			message: "#^Access to an undefined property PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocTagValueNode\\:\\:\\$type\\.$#"
 			count: 1
 			path: src/Domains/DocBlock/DocBlock.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\Request\\\\Ruler\\:\\:nestedRules\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int, mixed\\>\\.$#"
-			count: 1
-			path: src/Domains/Request/Ruler.php
 
 		-
 			message: "#^Parameter \\#1 \\$view of function view expects view\\-string\\|null, string given\\.$#"
