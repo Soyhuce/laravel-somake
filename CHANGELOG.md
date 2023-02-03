@@ -2,6 +2,24 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.4.0 - 2023-02-03
+
+### What's Changed
+
+- Tests without deprecation handling by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/22
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/23
+- Bump ramsey/composer-install from 1 to 2 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/24
+- Add somake:data command by @vthoma in https://github.com/Soyhuce/laravel-somake/pull/25
+- Drop phpunit support by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/26
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/29
+- Laravel 10 support by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/30
+
+### New Contributors
+
+- @vthoma made their first contribution in https://github.com/Soyhuce/laravel-somake/pull/25
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.3.0...1.4.0
+
 ## 1.3.0 - 2022-10-21
 
 ### What's Changed
