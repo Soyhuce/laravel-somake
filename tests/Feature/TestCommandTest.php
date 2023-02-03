@@ -79,7 +79,6 @@ it('creates correctly the unit test', function (): void {
         ->toMatchFileSnapshot();
 });
 
-
 it('creates correctly the unit test for form request', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')

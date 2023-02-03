@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Soyhuce\Somake\Domains\Test\UnitTestGenerators;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Collection;
 use Soyhuce\Somake\Contracts\UnitTestGenerator;
 
 class FormRequestTestGenerator implements UnitTestGenerator

@@ -47,7 +47,7 @@ class UnitTestGenerator
             'covered' => $this->class,
             'classFqcn' => $this->class,
             'classBasename' => class_basename($this->class),
-            ...$this->generator->data($this->class)
+            ...$this->generator->data($this->class),
         ];
     }
 }
