@@ -18,4 +18,8 @@ return [
         'request' => Illuminate\Foundation\Http\FormRequest::class,
         'resource' => Illuminate\Http\Resources\Json\JsonResource::class,
     ],
+
+    'test_generators' => [
+        Soyhuce\Somake\Domains\Test\UnitTestGenerators\DefaultTestGenerator::class,
+    ],
 ];

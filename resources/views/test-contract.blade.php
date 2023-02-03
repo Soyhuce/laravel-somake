@@ -1,4 +1,4 @@
-/* @@covers \{{ $coveredClass }}::{{ $coveredMethod }} */
+/* @@covers \{{ $covered }} */
 
 it('respects success contract', function (): void {
     $this->{{ $verb }}Json("{{ $url }}")

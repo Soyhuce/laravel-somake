@@ -7,8 +7,10 @@ use Illuminate\Support\Str;
 use RuntimeException;
 use Soyhuce\Somake\Commands\Concerns\AsksClass;
 use Soyhuce\Somake\Commands\Concerns\AsksMethod;
-use Soyhuce\Somake\Domains\Request\RouteGuesser;
+use Soyhuce\Somake\Domains\Test\ContractTestGenerator;
+use Soyhuce\Somake\Domains\Test\FeatureTestGenerator;
 use Soyhuce\Somake\Domains\Test\TestNameGuesser;
+use Soyhuce\Somake\Domains\Test\UnitTestGenerator;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function in_array;
@@ -49,15 +51,10 @@ class TestCommand extends Command
             Str::of($controller)->after('App\\')->replace('\\Controllers\\', '\\')->replaceLast('Controller', ''),
             $testName
         );
-        $routeGuesser = new RouteGuesser($controller, $method);
 
-        $writer->write($this->stubFile('contract'), [
-            'coveredClass' => $controller,
-            'coveredMethod' => $method,
-            'url' => $routeGuesser->url(),
-            'verb' => $routeGuesser->verb(),
-        ])
-            ->withBaseClass(config('somake.base_classes.test_contract'))
+        $testGenerator = new ContractTestGenerator($controller, $method);
+
+        $writer->write($testGenerator->view(), $testGenerator->data())
             ->toClass($testClass);
 
         return $testClass;
@@ -74,15 +71,10 @@ class TestCommand extends Command
             Str::of($controller)->after('App\\')->replace('\\Controllers\\', '\\'),
             $testName
         );
-        $routeGuesser = new RouteGuesser($controller, $method);
 
-        $writer->write($this->stubFile('feature'), [
-            'coveredClass' => $controller,
-            'coveredMethod' => $method,
-            'url' => $routeGuesser->url(),
-            'verb' => $routeGuesser->verb(),
-        ])
-            ->withBaseClass(config('somake.base_classes.test_feature'))
+        $testGenerator = new FeatureTestGenerator($controller, $method);
+
+        $writer->write($testGenerator->view(), $testGenerator->data())
             ->toClass($testClass);
 
         return $testClass;
@@ -94,8 +86,9 @@ class TestCommand extends Command
 
         $testClass = "Tests\\Unit\\{$class}Test";
 
-        $writer->write($this->stubFile('unit'), ['coveredClass' => $class])
-            ->withBaseClass(config('somake.base_classes.test_unit'))
+        $testGenerator = new UnitTestGenerator($class);
+
+        $writer->write($testGenerator->view(), $testGenerator->data())
             ->toClass($testClass);
 
         return $testClass;
@@ -110,10 +103,5 @@ class TestCommand extends Command
         }
 
         return $this->choice('Which kind of test do you want to create ?', $types);
-    }
-
-    private function stubFile(string $type): string
-    {
-        return "pest-{$type}";
     }
 }
