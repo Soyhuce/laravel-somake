@@ -43,6 +43,11 @@ class UnitTestGenerator
      */
     public function data(): array
     {
-        return $this->generator->data($this->class);
+        return [
+            'covered' => $this->class,
+            'classFqcn' => $this->class,
+            'classBasename' => class_basename($this->class),
+            ...$this->generator->data($this->class)
+        ];
     }
 }

@@ -21,8 +21,6 @@ class DefaultTestGenerator implements UnitTestGenerator
 
     public function data(string $class): array
     {
-        return [
-            'covered' => $class,
-        ];
+        return [];
     }
 }
