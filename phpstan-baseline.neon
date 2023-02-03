@@ -106,6 +106,16 @@ parameters:
 			path: src/Domains/DocBlock/DocBlock.php
 
 		-
+			message: "#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			count: 1
+			path: src/Domains/Test/UnitTestGenerator.php
+
+		-
+			message: "#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			count: 1
+			path: src/Domains/Test/UnitTestGenerator.php
+
+		-
 			message: "#^Parameter \\#1 \\$view of function view expects view\\-string\\|null, string given\\.$#"
 			count: 2
 			path: src/Support/PendingWriter.php
