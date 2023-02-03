@@ -78,3 +78,17 @@ it('creates correctly the unit test', function (): void {
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
+
+
+it('creates correctly the unit test for form request', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'UpdateVideoRequest')
+        ->expectsOutput('The Tests\\Unit\\App\\Website\\Videos\\Requests\\UpdateVideoRequestTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
+
+    expect($this->app->basePath('tests/Unit/App/Website/Videos/Requests/UpdateVideoRequestTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
