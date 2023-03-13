@@ -2,7 +2,7 @@
 
 namespace Soyhuce\Somake\Tests\Unit\Support;
 
-use Domain\User\DTO\UserDTO;
+use Domain\User\Data\UserData;
 use Domain\User\Models\User;
 use Soyhuce\Somake\Support\Composer;
 use Soyhuce\Somake\Support\Finder;
@@ -57,13 +57,13 @@ class FinderTest extends TestCase
     /**
      * @test
      */
-    public function dataTransferObjectsAreCorrectlyResolved(): void
+    public function dataObjectsAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());
 
         $this->assertEquals(
-            [UserDTO::class],
-            $finder->dtos()->all()
+            [UserData::class],
+            $finder->datas()->all()
         );
     }
 

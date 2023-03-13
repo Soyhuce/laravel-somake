@@ -10,7 +10,7 @@ it('creates the request correctly', function (): void {
             'You may want LoginRequest to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             null
         )
-        ->expectsQuestion('Do you want to fill the request with fields from a DTO ?', false)
+        ->expectsQuestion('Do you want to fill the request with fields from a Data ?', false)
         ->expectsOutput('The App\\Website\\Auth\\Requests\\LoginRequest class was successfully created !')
         ->expectsQuestion('Do you want to create a Unit Test for App\\Website\\Auth\\Requests\\LoginRequest ?', false)
         ->assertExitCode(0)
@@ -21,7 +21,7 @@ it('creates the request correctly', function (): void {
         ->toMatchFileSnapshot();
 });
 
-it('prefills the request with dto fields', function (): void {
+it('prefills the request with data fields', function (): void {
     $this->artisan('somake:request')
         ->expectsQuestion('What is the Request name ?', 'UserRequest')
         ->expectsOutput('I detected 3 applications.')
@@ -31,8 +31,8 @@ it('prefills the request with dto fields', function (): void {
             'You may want UserRequest to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             null
         )
-        ->expectsQuestion('Do you want to fill the request with fields from a DTO ?', true)
-        ->expectsQuestion('What is the DTO ?', 'UserDTO')
+        ->expectsQuestion('Do you want to fill the request with fields from a Data ?', true)
+        ->expectsQuestion('What is the Data ?', 'UserData')
         ->expectsOutput('The App\\Admin\\Requests\\UserRequest class was successfully created !')
         ->expectsQuestion('Do you want to create a Unit Test for App\\Admin\\Requests\\UserRequest ?', false)
         ->assertExitCode(0)
@@ -55,7 +55,7 @@ it('creates the request with custom base class', function (): void {
             'You may want LoginRequest to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
             null
         )
-        ->expectsQuestion('Do you want to fill the request with fields from a DTO ?', false)
+        ->expectsQuestion('Do you want to fill the request with fields from a Data ?', false)
         ->expectsOutput('The App\\Website\\Auth\\Requests\\LoginRequest class was successfully created !')
         ->expectsQuestion('Do you want to create a Unit Test for App\\Website\\Auth\\Requests\\LoginRequest ?', false)
         ->assertExitCode(0)

@@ -9,7 +9,6 @@ use Soyhuce\Somake\Commands\BuilderCommand;
 use Soyhuce\Somake\Commands\CommandCommand;
 use Soyhuce\Somake\Commands\ControllerCommand;
 use Soyhuce\Somake\Commands\DataCommand;
-use Soyhuce\Somake\Commands\DtoCommand;
 use Soyhuce\Somake\Commands\EnumCommand;
 use Soyhuce\Somake\Commands\FactoryCommand;
 use Soyhuce\Somake\Commands\MiddlewareCommand;

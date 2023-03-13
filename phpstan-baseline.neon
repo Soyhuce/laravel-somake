@@ -46,12 +46,17 @@ parameters:
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askDTO\\(\\) should return class\\-string\\<Spatie\\\\DataTransferObject\\\\DataTransferObject\\> but returns string\\|null\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns string\\|null\\.$#"
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:disambiguateDtos\\(\\) should return string but returns array\\|string\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:disambiguateDatas\\(\\) should return string but returns array\\|string\\.$#"
+			count: 1
+			path: src/Commands/RequestCommand.php
+
+		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:qualifyData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns class\\-string\\.$#"
 			count: 1
 			path: src/Commands/RequestCommand.php
 
@@ -114,6 +119,11 @@ parameters:
 			message: "#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
 			count: 1
 			path: src/Domains/Test/UnitTestGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Container\\\\Container\\:\\:call\\(\\) expects \\(callable\\(\\)\\: mixed\\)\\|string, array\\{Illuminate\\\\Foundation\\\\Http\\\\FormRequest, 'rules'\\} given\\.$#"
+			count: 1
+			path: src/Domains/Test/UnitTestGenerators/FormRequestTestGenerator.php
 
 		-
 			message: "#^Parameter \\#1 \\$view of function view expects view\\-string\\|null, string given\\.$#"

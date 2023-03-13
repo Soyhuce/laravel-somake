@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Soyhuce\ClassMapGenerator\ClassMapGenerator;
-use Spatie\DataTransferObject\DataTransferObject;
+use Spatie\LaravelData\Data;
 use Throwable;
 
 class Finder
@@ -102,13 +102,13 @@ class Finder
     }
 
     /**
-     * @return \Illuminate\Support\Collection<int, class-string<\Spatie\DataTransferObject\DataTransferObject>>
+     * @return \Illuminate\Support\Collection<int, class-string<\Spatie\LaravelData\Data>>
      */
-    public function dtos(): Collection
+    public function datas(): Collection
     {
         return collect(ClassMapGenerator::createMap($this->domainRootPath()))
             ->keys()
-            ->filter(fn (string $class) => class_exists($class) && is_a($class, DataTransferObject::class, true))
+            ->filter(fn (string $class) => class_exists($class) && is_a($class, Data::class, true))
             ->values();
     }
 

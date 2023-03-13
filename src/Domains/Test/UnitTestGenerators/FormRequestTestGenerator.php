@@ -5,6 +5,9 @@ namespace Soyhuce\Somake\Domains\Test\UnitTestGenerators;
 use Illuminate\Foundation\Http\FormRequest;
 use Soyhuce\Somake\Contracts\UnitTestGenerator;
 
+/**
+ * @implements UnitTestGenerator<FormRequest>
+ */
 class FormRequestTestGenerator implements UnitTestGenerator
 {
     public static function shouldHandle(string $class): bool
