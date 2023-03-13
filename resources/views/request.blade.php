@@ -11,7 +11,7 @@ class {{ $request }} extends {{ $baseClassName }}
     {
         return [
 @foreach($fields as $field => $rules)
-            '{{ $field }}' => ['{!! implode('\', \'', $rules) !!}'],
+            '{{ $field }}' => [{!! implode(', ', $rules) !!}],
 @endforeach
         ];
     }

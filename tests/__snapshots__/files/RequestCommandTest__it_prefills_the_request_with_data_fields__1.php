@@ -14,7 +14,8 @@ class UserRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
-            'email_verified_at' => ['nullable', 'string', 'date_format:Y-m-d H:i:s'],
+            'email_verified_at' => ['nullable'],
+            'role' => ['required', \Illuminate\Validation\Rule::enum(\Domain\User\Enums\Role::class)],
         ];
     }
 }

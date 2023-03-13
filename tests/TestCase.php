@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\Concerns\InteractsWithDeprecationHandling;
 use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Soyhuce\Somake\SomakeServiceProvider;
+use Spatie\LaravelData\LaravelDataServiceProvider;
 use Support\BaseApplication;
 
 /**
@@ -41,6 +42,7 @@ class TestCase extends Orchestra
     {
         return [
             SomakeServiceProvider::class,
+            LaravelDataServiceProvider::class,
         ];
     }
 
