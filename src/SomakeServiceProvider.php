@@ -40,7 +40,6 @@ class SomakeServiceProvider extends PackageServiceProvider
                 CommandCommand::class,
                 ControllerCommand::class,
                 DataCommand::class,
-                DtoCommand::class,
                 EnumCommand::class,
                 FactoryCommand::class,
                 MiddlewareCommand::class,
