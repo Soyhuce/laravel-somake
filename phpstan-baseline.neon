@@ -125,8 +125,3 @@ parameters:
 			count: 1
 			path: src/Domains/Test/UnitTestGenerators/FormRequestTestGenerator.php
 
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view\\-string\\|null, string given\\.$#"
-			count: 2
-			path: src/Support/PendingWriter.php
-
