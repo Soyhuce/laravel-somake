@@ -36,12 +36,12 @@ The configuration of generated classes is done via interactive questions.
 
 ### App
 
-| Commande            | Description | Generation path                                 |
-|---------------------|-------------|-------------------------------------------------|
-| `somake:command`    | Commande    | `app/App/Commands`                              |
+| Commande            | Description | Generation path                                  |
+|---------------------|-------------|--------------------------------------------------|
+| `somake:command`    | Commande    | `app/App/Commands`                               |
 | `somake:controller` | Controller  | `app/App/[application]/Controllers/[namespace?]` |
-| `somake:middleware` | Middleware  | `app/App/[application]/Middleware/[namespace?]` |
-| `somake:request`    | Request     | `app/App/[application]/Requests/[namespace?]`   |
+| `somake:middleware` | Middleware  | `app/App/[application]/Middleware/[namespace?]`  |
+| `somake:request`    | Request     | `app/App/[application]/Requests/[namespace?]`    |
 | `somake:resource`   | Resource    | `app/App/[application]/Resources/[model domain]` |
 
 ### Domain
@@ -51,7 +51,6 @@ The configuration of generated classes is done via interactive questions.
 | `somake:action`  | Action               | `app/Domain/[domain]/Actions`  |
 | `somake:builder` | Eloquent Builder     | `app/Domain/[domain]/Builders` |
 | `somake:data`    | Data                 | `app/Domain/[domain]/Data`     |
-| `somake:dto`     | Data Transfer Object | `app/Domain/[domain]/DTO`      |
 | `somake:enum`    | Enum                 | `app/Domain/[domain]/Enums`    |
 | `somake:model`   | Model                | `app/Domain/[domain]/Models`   |
 | `somake:policy`  | Policy               | `app/Domain/[domain]/Policies` |
