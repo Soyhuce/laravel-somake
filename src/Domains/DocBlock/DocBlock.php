@@ -44,7 +44,7 @@ class DocBlock
         return collect($docNode->children)
             ->filter(fn (PhpDocChildNode $node) => $node instanceof PhpDocTagNode)
             ->filter(fn (PhpDocTagNode $node) => in_array($node->name, $types))
-            ->map(fn (PhpDocTagNode $node) => new DocTag($node->value->propertyName, (string) $node->value->type))
+            ->map(fn (PhpDocTagNode $node) => new DocTag($node->value->propertyName ?? null, (string) $node->value->type))
             ->values();
     }
 
