@@ -91,3 +91,16 @@ it('creates correctly the unit test for form request', function (): void {
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
+
+it('creates correctly the unit test for json resource', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'UserResource')
+        ->expectsOutput('The Tests\\Unit\\App\\Admin\\Resources\\User\\UserResourceTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
+
+    expect($this->app->basePath('tests/Unit/App/Admin/Resources/User/UserResourceTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});

@@ -5,7 +5,7 @@ namespace Soyhuce\Somake\Domains\DocBlock;
 class DocTag
 {
     public function __construct(
-        public string $name,
+        public ?string $name,
         public string $type,
     ) {
     }
