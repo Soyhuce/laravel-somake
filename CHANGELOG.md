@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 1.5.0 - 2023-03-15
+
+### What's Changed
+
+- Create unit test depending on tested class by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/31
+- Create FromRequest from data, remove spatie/data-transfer-object by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/32
+- Add JsonResource test creation by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/33
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.4.0...1.5.0
+
 ## 1.4.0 - 2023-02-03
 
 ### What's Changed
