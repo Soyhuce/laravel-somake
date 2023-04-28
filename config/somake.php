@@ -21,6 +21,7 @@ return [
     'test_generators' => [
         Soyhuce\Somake\Domains\Test\UnitTestGenerators\FormRequestTestGenerator::class,
         Soyhuce\Somake\Domains\Test\UnitTestGenerators\JsonResourceTestGenerator::class,
+        Soyhuce\Somake\Domains\Test\UnitTestGenerators\MiddlewareTestGenerator::class,
         Soyhuce\Somake\Domains\Test\UnitTestGenerators\DefaultTestGenerator::class,
     ],
 ];

@@ -104,3 +104,16 @@ it('creates correctly the unit test for json resource', function (): void {
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
+
+it('creates correctly the unit test for middleware', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'RedirectIfAuthenticated')
+        ->expectsOutput('The Tests\\Unit\\Support\\Http\\Middleware\\RedirectIfAuthenticatedTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
+
+    expect($this->app->basePath('tests/Unit/Support/Http/Middleware/RedirectIfAuthenticatedTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
