@@ -8,6 +8,9 @@ use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class ModelCommand extends Command
 {
@@ -22,7 +25,7 @@ class ModelCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $model = $this->ask('What is the Model name ?');
+        $model = text(label: 'What is the Model name ?', required: true);
 
         $domain = $this->askDomain($finder->domains());
 
@@ -31,7 +34,7 @@ class ModelCommand extends Command
             ->toPath($finder->domainPath("{$domain}/Models/{$model}.php"));
 
         $modelFqcn = "Domain\\{$domain}\\Models\\{$model}";
-        $this->info("The {$modelFqcn} class was successfully created !");
+        outro("The {$modelFqcn} class was successfully created !");
 
         $this->terminate($modelFqcn);
     }
@@ -40,12 +43,12 @@ class ModelCommand extends Command
     {
         if (
             InstalledVersions::isInstalled('soyhuce/next-ide-helper')
-            && $this->confirm('Do you want to run next-ide-helper:models ?', true)
+            && confirm('Do you want to run next-ide-helper:models ?')
         ) {
             $this->startArtisanProcess('next-ide-helper:models');
         }
 
-        if (!$this->confirm('Do you want to create the model factory ?', true)) {
+        if (!confirm('Do you want to create the model factory ?')) {
             return;
         }
 

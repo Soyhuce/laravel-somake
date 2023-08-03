@@ -15,6 +15,10 @@ use Spatie\LaravelData\Resolvers\DataValidationRulesResolver;
 use Spatie\LaravelData\Support\Validation\DataRules;
 use Spatie\LaravelData\Support\Validation\ValidationPath;
 use function is_string;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\error;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class RequestCommand extends Command
 {
@@ -30,14 +34,14 @@ class RequestCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $request = $this->ask('What is the Request name ?');
+        $request = text(label: 'What is the Request name ?', required: true);
 
         $application = $this->askApplication($finder->applications());
         $applicationNamespace = str_replace('/', '\\', $application);
 
         $namespace = $this->askOptionalNamespace($request, $finder->domains());
 
-        if ($namespace === null) {
+        if ($namespace === '') {
             $path = "{$application}/Requests/{$request}.php";
             $requestFqcn = "App\\{$applicationNamespace}\\Requests\\{$request}";
         } else {
@@ -51,7 +55,7 @@ class RequestCommand extends Command
             ->withBaseClass(config('somake.base_classes.request'))
             ->toPath($finder->applicationPath($path));
 
-        $this->info("The {$requestFqcn} class was successfully created !");
+        outro("The {$requestFqcn} class was successfully created !");
 
         $this->createUnitTest($requestFqcn);
     }
@@ -65,7 +69,7 @@ class RequestCommand extends Command
             return [];
         }
 
-        if (!$this->confirm('Do you want to fill the request with fields from a Data ?', true)) {
+        if (!confirm('Do you want to fill the request with fields from a Data ?')) {
             return [];
         }
 
@@ -110,7 +114,7 @@ class RequestCommand extends Command
             return "\\Illuminate\\Validation\\Rule::enum(\\{$type}::class)";
         }
 
-        $this->error("I wasn't able to format a rule of type " . $rule::class . '. Please report this issue to github.com/Soyhuce/laravel-somake.');
+        error("I wasn't able to format a rule of type " . $rule::class . '. Please report this issue to github.com/Soyhuce/laravel-somake.');
 
         return null;
     }

@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class DataCommand extends Command
 {
@@ -19,7 +21,7 @@ class DataCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $data = $this->ask('What is the Data name ?');
+        $data = text(label: 'What is the Data name ?', required: true);
 
         $domain = $this->askDomain($finder->domains());
 
@@ -28,6 +30,7 @@ class DataCommand extends Command
             ->toPath($finder->domainPath("{$domain}/Data/{$data}.php"));
 
         $dataFqcn = "Domain\\{$domain}\\Data\\{$data}";
-        $this->info("The {$dataFqcn} class was successfully created !");
+
+        outro("The {$dataFqcn} class was successfully created !");
     }
 }

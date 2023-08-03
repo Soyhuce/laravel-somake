@@ -8,6 +8,8 @@ use Soyhuce\Somake\Commands\Concerns\AsksModel;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\outro;
 
 class BuilderCommand extends Command
 {
@@ -30,9 +32,9 @@ class BuilderCommand extends Command
             ->withBaseClass(config('somake.base_classes.builder'))
             ->toClass($builder);
 
-        $this->info("The {$builder} class was successfully created !");
+        outro("The {$builder} class was successfully created !");
 
-        if (!$this->confirm("Do you want to add implementation of newEloquentBuilder in {$modelName} ?", true)) {
+        if (!confirm("Do you want to add implementation of newEloquentBuilder in {$modelName} ?")) {
             return;
         }
 
@@ -48,7 +50,7 @@ class BuilderCommand extends Command
             return;
         }
 
-        if (!$this->confirm('Do you want to run next-ide-helper:models ?', true)) {
+        if (!confirm('Do you want to run next-ide-helper:models ?')) {
             return;
         }
 

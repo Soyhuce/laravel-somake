@@ -3,7 +3,7 @@
 it('creates the command correctly', function (): void {
     $this->artisan('somake:command')
         ->expectsQuestion('What is the Command name ?', 'ConvertModels')
-        ->expectsOutput('The App\\Commands\\ConvertModels class was successfully created !')
+        ->expectsOutputToContain('The App\\Commands\\ConvertModels class was successfully created !')
         ->expectsQuestion('Do you want to create a Unit Test for App\\Commands\\ConvertModels ?', false)
         ->assertExitCode(0)
         ->execute();

@@ -4,11 +4,13 @@ namespace Soyhuce\Somake\Commands\Concerns;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\suggest;
+use function Laravel\Prompts\text;
+use function Laravel\Prompts\warning;
 
 trait AsksModel
 {
-    use WrapsCallable;
-
     /**
      * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      * @return class-string<\Illuminate\Database\Eloquent\Model>
@@ -20,14 +22,19 @@ trait AsksModel
         }
 
         if ($models->isEmpty()) {
-            return $this->ask('What is the Model ? Please provide full qualified class name');
+            return text(
+                label: 'What is the Model ?',
+                placeholder: 'Domain\\TheDomain\\Models\\TheModel',
+                required: true
+            );
         }
 
-        $this->showModels($models);
-
-        $model = $this->anticipate(
-            'What is the Model ?',
-            $this->wrapCallable($models->merge($models->map(fn (string $model) => class_basename($model)))->sort()->all())
+        $model = suggest(
+            label: 'What is the Model ?',
+            options: $models->map(fn (string $model) => class_basename($model))
+                ->sort()
+                ->merge($models->sort()),
+            required: true,
         );
 
         if ($models->contains($model)) {
@@ -43,38 +50,18 @@ trait AsksModel
         };
     }
 
-    /**
-     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
-     */
-    protected function showModels(Collection $models): void
-    {
-        $this->info(sprintf('I detected %d %s.', $models->count(), Str::plural('models', $models->count())));
-
-        $table = $models->map(
-            fn (string $model) => [
-                Str::between($model, 'Domain\\', '\\Models\\'),
-                class_basename($model),
-            ]
-        )
-            ->sort(function (array $first, array $second) {
-                if ($first[0] === $second[0]) {
-                    return strcmp($first[1], $second[1]);
-                }
-
-                return strcmp($first[0], $second[0]);
-            });
-
-        $this->table(['Domain', 'Model'], $table);
-    }
-
     private function qualifyModel(string $model): string
     {
         if (class_exists($model)) {
             return $model;
         }
-        $this->error("I did not found {$model} class.");
+        warning("I did not found {$model} class.");
 
-        return $this->ask('What is the Model ? Please provide full qualified class name');
+        return text(
+            label: 'What is the Model ?',
+            placeholder: 'Domain\\TheDomain\\Models\\TheModel',
+            required: true
+        );
     }
 
     /**
@@ -82,8 +69,11 @@ trait AsksModel
      */
     private function disambiguateModel(Collection $models): string
     {
-        $this->info('I\'m not sure which model you choose...');
+        warning('I\'m not sure which model you choose...');
 
-        return $this->choice('Which one should I choose ?', $models->values()->all());
+        return select(
+            label: 'Which one should I choose ?',
+            options: $models,
+        );
     }
 }

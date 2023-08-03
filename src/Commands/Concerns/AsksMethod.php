@@ -5,6 +5,7 @@ namespace Soyhuce\Somake\Commands\Concerns;
 use Illuminate\Support\Collection;
 use ReflectionClass;
 use ReflectionMethod;
+use function Laravel\Prompts\suggest;
 
 trait AsksMethod
 {
@@ -21,6 +22,10 @@ trait AsksMethod
             ->map(fn (ReflectionMethod $method) => $method->getName())
             ->sort();
 
-        return $this->anticipate($question, $this->wrapCallable($methods->all())) ?? 'defineMe';
+        return suggest(
+            label: $question,
+            options: $methods,
+            required: true
+        );
     }
 }

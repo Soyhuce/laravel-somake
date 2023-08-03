@@ -10,6 +10,8 @@ use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Domains\Model\Model;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\outro;
 
 class FactoryCommand extends Command
 {
@@ -34,7 +36,7 @@ class FactoryCommand extends Command
             ->withBaseClass(config('somake.base_classes.factory'))
             ->toClass($factory);
 
-        $this->info("The {$factory} class was successfully created !");
+        outro("The {$factory} class was successfully created !");
 
         $this->terminate();
     }
@@ -45,7 +47,7 @@ class FactoryCommand extends Command
             return;
         }
 
-        if (!$this->confirm('Do you want to run next-ide-helper:factories ?', true)) {
+        if (!confirm('Do you want to run next-ide-helper:factories ?')) {
             return;
         }
 

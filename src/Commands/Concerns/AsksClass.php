@@ -4,11 +4,13 @@ namespace Soyhuce\Somake\Commands\Concerns;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\suggest;
+use function Laravel\Prompts\text;
+use function Laravel\Prompts\warning;
 
 trait AsksClass
 {
-    use WrapsCallable;
-
     /**
      * @param Collection<int, class-string> $classes
      * @return class-string
@@ -20,12 +22,19 @@ trait AsksClass
         }
 
         if ($classes->isEmpty()) {
-            return $this->ask("{$question} Please provide full qualified class name");
+            return text(
+                label: $question,
+                placeholder: 'Fully\\Qualified\\Class\\Name',
+                required: true
+            );
         }
 
-        $class = $this->anticipate(
-            $question,
-            $this->wrapCallable($classes->merge($classes->map(fn (string $class) => class_basename($class)))->sort()->all())
+        $class = suggest(
+            label: $question,
+            options: $classes->map(fn (string $class) => class_basename($class))
+                ->sort()
+                ->merge($classes->sort()),
+            required: true
         );
 
         if ($classes->contains($class)) {
@@ -51,9 +60,13 @@ trait AsksClass
         if (class_exists($class)) {
             return $class;
         }
-        $this->error("I did not found {$class} class.");
+        warning("I did not found {$class} class.");
 
-        return $this->ask("{$question} Please provide full qualified class name");
+        return text(
+            label: $question,
+            placeholder: 'Fully\\Qualified\\Class\\Name',
+            required: true
+        );
     }
 
     /**
@@ -61,8 +74,11 @@ trait AsksClass
      */
     private function disambiguateClass(Collection $guessedClasses): string
     {
-        $this->info('I\'m not sure which class you choose...');
+        warning('I\'m not sure which class you choose...');
 
-        return $this->choice('Which one should I choose ?', $guessedClasses->values()->all());
+        return select(
+            label: 'Which one should I choose ?',
+            options: $guessedClasses
+        );
     }
 }

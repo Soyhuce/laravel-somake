@@ -7,6 +7,8 @@ use Soyhuce\Somake\Commands\Concerns\AsksApplication;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\text;
 
 class MiddlewareCommand extends Command
 {
@@ -21,9 +23,13 @@ class MiddlewareCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $middleware = $this->ask('What is the Middleware name ?');
+        $middleware = text(label: 'What is the Middleware name ?', required: true);
 
-        $middlewareFqcn = $this->confirm('Do you want it to be in an Application ? Say no if you want it in Support', true)
+        $middlewareFqcn = select(
+            label: 'Where do you want it to be created ?',
+            options: ['Application', 'Support'],
+            default: 'Application'
+        ) === 'Application'
             ? $this->inApplication($finder, $middleware)
             : $this->inSupport($middleware);
 
@@ -41,7 +47,7 @@ class MiddlewareCommand extends Command
 
         $namespace = $this->askOptionalNamespace($middleware, $finder->domains());
 
-        if ($namespace === null) {
+        if ($namespace === '') {
             return "App\\{$applicationNamespace}\\Middleware\\{$middleware}";
         }
 
@@ -52,7 +58,7 @@ class MiddlewareCommand extends Command
     {
         $namespace = $this->askOptionalNamespace($middleware);
 
-        if ($namespace === null) {
+        if ($namespace === '') {
             return "Support\\Http\\Middleware\\{$middleware}";
         }
 

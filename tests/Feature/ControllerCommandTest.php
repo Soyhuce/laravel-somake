@@ -3,14 +3,12 @@
 it('creates the controller correctly', function (): void {
     $this->artisan('somake:controller')
         ->expectsQuestion('What is the Controller name ?', 'PostController')
-        ->expectsOutput('I detected 3 applications.')
-        ->expectsTable(['Applications'], [['Admin'], ['Website/Blog'], ['Website/Videos']])
         ->expectsQuestion('What is the Application ?', 'Website/Blog')
         ->expectsQuestion(
-            'You may want PostController to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
-            null
+            'You may want PostController to live in a sub namespace. Which one ?',
+            ''
         )
-        ->expectsOutput('The App\\Website\\Blog\\Controllers\\PostController class was successfully created !')
+        ->expectsOutputToContain('The App\\Website\\Blog\\Controllers\\PostController class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -22,14 +20,12 @@ it('creates the controller correctly', function (): void {
 it('allows the controller to live in a sub namespace', function (): void {
     $this->artisan('somake:controller')
         ->expectsQuestion('What is the Controller name ?', 'LoginController')
-        ->expectsOutput('I detected 3 applications.')
-        ->expectsTable(['Applications'], [['Admin'], ['Website/Blog'], ['Website/Videos']])
         ->expectsQuestion('What is the Application ?', 'Admin')
         ->expectsQuestion(
-            'You may want LoginController to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
+            'You may want LoginController to live in a sub namespace. Which one ?',
             'Auth'
         )
-        ->expectsOutput('The App\\Admin\\Controllers\\Auth\\LoginController class was successfully created !')
+        ->expectsOutputToContain('The App\\Admin\\Controllers\\Auth\\LoginController class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -43,14 +39,12 @@ it('allows the controller to extend custom base class', function (): void {
 
     $this->artisan('somake:controller')
         ->expectsQuestion('What is the Controller name ?', 'PostController')
-        ->expectsOutput('I detected 3 applications.')
-        ->expectsTable(['Applications'], [['Admin'], ['Website/Blog'], ['Website/Videos']])
         ->expectsQuestion('What is the Application ?', 'Website/Blog')
         ->expectsQuestion(
-            'You may want PostController to live in a sub namespace. Which one ? Leave it empty if you want to leave it in root namespace.',
-            null
+            'You may want PostController to live in a sub namespace. Which one ?',
+            ''
         )
-        ->expectsOutput('The App\\Website\\Blog\\Controllers\\PostController class was successfully created !')
+        ->expectsOutputToContain('The App\\Website\\Blog\\Controllers\\PostController class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 

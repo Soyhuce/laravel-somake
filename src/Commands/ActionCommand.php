@@ -7,6 +7,8 @@ use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class ActionCommand extends Command
 {
@@ -21,7 +23,7 @@ class ActionCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $action = $this->ask('What is the Action name ?');
+        $action = text(label: 'What is the Action name ?', required: true);
 
         $domain = $this->askDomain($finder->domains());
 
@@ -30,7 +32,7 @@ class ActionCommand extends Command
             ->toPath($finder->domainPath("{$domain}/Actions/{$action}.php"));
 
         $actionFqcn = "Domain\\{$domain}\\Actions\\{$action}";
-        $this->info("The {$actionFqcn} class was successfully created !");
+        outro("The {$actionFqcn} class was successfully created !");
 
         $this->createUnitTest($actionFqcn);
     }

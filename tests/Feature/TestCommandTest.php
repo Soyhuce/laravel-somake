@@ -8,7 +8,7 @@ it('creates correctly the contract test', function (): void {
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
         ->expectsQuestion('Which method do you want to cover ?', 'show')
         ->expectsQuestion('What is the Test name ?', 'ContractShowVideoTest')
-        ->expectsOutput('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Contract\\Website\\Videos\\Video\\ContractShowVideoTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -25,7 +25,7 @@ it('creates correctly the feature test', function (): void {
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
         ->expectsQuestion('Which method do you want to cover ?', 'show')
         ->expectsQuestion('What is the Test name ?', 'ShowVideoTest')
-        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Feature\\Website\\Videos\\VideoController\\ShowVideoTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -40,7 +40,7 @@ it('creates correctly the feature test with unknown method', function (): void {
         ->expectsQuestion('Which controller do you want to cover ?', 'VideoController')
         ->expectsQuestion('Which method do you want to cover ?', 'index')
         ->expectsQuestion('What is the Test name ?', 'IndexVideosTest')
-        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\VideoController\\IndexVideosTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Feature\\Website\\Videos\\VideoController\\IndexVideosTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -55,7 +55,7 @@ it('creates correctly the feature test with invokable controller', function (): 
         ->expectsQuestion('Which controller do you want to cover ?', 'InvokableVideoController')
         ->expectsQuestion('Which method do you want to cover ?', '__invoke')
         ->expectsQuestion('What is the Test name ?', 'IndexVideosTest')
-        ->expectsOutput('The Tests\\Feature\\Website\\Videos\\InvokableVideoController\\IndexVideosTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Feature\\Website\\Videos\\InvokableVideoController\\IndexVideosTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -70,7 +70,7 @@ it('creates correctly the unit test', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
         ->expectsQuestion('Which class do you want to cover ?', 'User')
-        ->expectsOutput('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Unit\\Domain\\User\\Models\\UserTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -83,7 +83,7 @@ it('creates correctly the unit test for form request', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
         ->expectsQuestion('Which class do you want to cover ?', 'UpdateVideoRequest')
-        ->expectsOutput('The Tests\\Unit\\App\\Website\\Videos\\Requests\\UpdateVideoRequestTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Unit\\App\\Website\\Videos\\Requests\\UpdateVideoRequestTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -96,7 +96,7 @@ it('creates correctly the unit test for json resource', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
         ->expectsQuestion('Which class do you want to cover ?', 'UserResource')
-        ->expectsOutput('The Tests\\Unit\\App\\Admin\\Resources\\User\\UserResourceTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Unit\\App\\Admin\\Resources\\User\\UserResourceTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -109,7 +109,7 @@ it('creates correctly the unit test for middleware', function (): void {
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
         ->expectsQuestion('Which class do you want to cover ?', 'RedirectIfAuthenticated')
-        ->expectsOutput('The Tests\\Unit\\Support\\Http\\Middleware\\RedirectIfAuthenticatedTest class was successfully created !')
+        ->expectsOutputToContain('The Tests\\Unit\\Support\\Http\\Middleware\\RedirectIfAuthenticatedTest class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 

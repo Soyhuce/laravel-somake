@@ -3,10 +3,8 @@
 it('creates the data correctly', function (): void {
     $this->artisan('somake:data')
         ->expectsQuestion('What is the Data name ?', 'CreatePostData')
-        ->expectsOutput('I detected 1 domain.')
-        ->expectsTable(['Domain'], [['User']])
         ->expectsQuestion('What is the Domain ?', 'Blog')
-        ->expectsOutput('The Domain\\Blog\\Data\\CreatePostData class was successfully created !')
+        ->expectsOutputToContain('The Domain\\Blog\\Data\\CreatePostData class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 

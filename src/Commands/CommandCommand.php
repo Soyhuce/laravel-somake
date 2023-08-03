@@ -5,6 +5,8 @@ namespace Soyhuce\Somake\Commands;
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class CommandCommand extends Command
 {
@@ -18,14 +20,14 @@ class CommandCommand extends Command
 
     public function handle(Writer $writer): void
     {
-        $command = $this->ask('What is the Command name ?');
+        $command = text(label: 'What is the Command name ?', required: true);
         $commandFqcn = 'App\\Commands\\' . $command;
 
         $writer->write('command')
             ->withBaseClass(config('somake.base_classes.command'))
             ->toClass($commandFqcn);
 
-        $this->info("The {$commandFqcn} class was successfully created !");
+        outro("The {$commandFqcn} class was successfully created !");
 
         $this->createUnitTest($commandFqcn);
     }

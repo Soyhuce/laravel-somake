@@ -4,6 +4,10 @@ namespace Soyhuce\Somake\Commands\Concerns;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\suggest;
+use function Laravel\Prompts\text;
+use function Laravel\Prompts\warning;
 
 trait AsksData
 {
@@ -14,12 +18,19 @@ trait AsksData
     protected function askData(Collection $datas): string
     {
         if ($datas->isEmpty()) {
-            return $this->ask('What is the Data ? Please provide full qualified class name');
+            return text(
+                label: 'What is the Data ?',
+                placeholder: 'Domain\\TheDomain\\Data\\TheData',
+                required: true
+            );
         }
 
-        $data = $this->anticipate(
-            'What is the Data ?',
-            $this->wrapCallable($datas->merge($datas->map(fn (string $data) => class_basename($data)))->sort()->all())
+        $data = suggest(
+            label: 'What is the Data ?',
+            options: $datas->map(fn (string $data) => class_basename($data))
+                ->sort()
+                ->merge($datas->sort()),
+            required: true
         );
 
         if ($datas->contains($data)) {
@@ -43,9 +54,13 @@ trait AsksData
         if (class_exists($data)) {
             return $data;
         }
-        $this->error("I did not found {$data} class.");
+        warning("I did not found {$data} class.");
 
-        return $this->ask('What is the Data ? Please provide full qualified class name');
+        return text(
+            label: 'What is the Data ?',
+            placeholder: 'Domain\\TheDomain\\Data\\TheData',
+            required: true
+        );
     }
 
     /**
@@ -53,8 +68,11 @@ trait AsksData
      */
     private function disambiguateDatas(Collection $datas): string
     {
-        $this->info('I\'m not sure which dto you choose...');
+        warning('I\'m not sure which data you choose...');
 
-        return $this->choice('Which one should I choose ?', $datas->values()->all());
+        return select(
+            label: 'Which one should I choose ?',
+            options: $datas
+        );
     }
 }

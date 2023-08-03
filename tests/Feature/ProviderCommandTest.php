@@ -3,7 +3,7 @@
 it('creates the service provider correctly', function (): void {
     $this->artisan('somake:provider')
         ->expectsQuestion('What is the ServiceProvider name ?', 'TestingServiceProvider')
-        ->expectsOutput('The Support\\Providers\\TestingServiceProvider class was successfully created !')
+        ->expectsOutputToContain('The Support\\Providers\\TestingServiceProvider class was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
