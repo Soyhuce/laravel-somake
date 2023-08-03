@@ -4,6 +4,8 @@ namespace Soyhuce\Somake\Commands;
 
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class ProviderCommand extends Command
 {
@@ -15,11 +17,11 @@ class ProviderCommand extends Command
 
     public function handle(Writer $writer): void
     {
-        $provider = $this->ask('What is the ServiceProvider name ?');
+        $provider = text(label: 'What is the ServiceProvider name ?', required: true);
 
         $providerFqcn = "Support\\Providers\\{$provider}";
         $writer->write('provider')->toClass($providerFqcn);
 
-        $this->info("The {$providerFqcn} class was successfully created !");
+        outro("The {$providerFqcn} class was successfully created !");
     }
 }

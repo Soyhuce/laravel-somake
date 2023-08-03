@@ -10,6 +10,8 @@ use Soyhuce\Somake\Commands\Concerns\AsksModel;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\outro;
 
 class PolicyCommand extends Command
 {
@@ -32,7 +34,7 @@ class PolicyCommand extends Command
             ->withBaseClass(config('somake.base_classes.policy'))
             ->toClass($policy);
 
-        $this->info("The {$policy} class was successfully created !");
+        outro("The {$policy} class was successfully created !");
 
         $this->terminate($policy);
     }
@@ -48,7 +50,7 @@ class PolicyCommand extends Command
 
     private function terminate(string $policyFqcn): void
     {
-        if (!$this->confirm("Do you want to create a Unit Test for {$policyFqcn} ?", true)) {
+        if (!confirm("Do you want to create a Unit Test for {$policyFqcn} ?")) {
             return;
         }
 

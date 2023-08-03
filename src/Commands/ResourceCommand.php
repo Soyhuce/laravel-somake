@@ -9,6 +9,8 @@ use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Domains\Model\Model;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\text;
 
 class ResourceCommand extends Command
 {
@@ -24,7 +26,7 @@ class ResourceCommand extends Command
 
     public function handle(Finder $finder, Writer $writer): void
     {
-        $resource = $this->ask('What is the Resource name ?');
+        $resource = text(label: 'What is the Resource name ?', required: true);
 
         $application = $this->askApplication($finder->applications());
         $applicationNamespace = str_replace('/', '\\', $application);
@@ -39,7 +41,7 @@ class ResourceCommand extends Command
             ->withBaseClass(config('somake.base_classes.resource'))
             ->toPath($finder->applicationPath($path));
 
-        $this->info("The {$resourceFqcn} class was successfully created !");
+        outro("The {$resourceFqcn} class was successfully created !");
         $this->createUnitTest($resourceFqcn);
     }
 }

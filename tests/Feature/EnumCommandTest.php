@@ -3,11 +3,9 @@
 it('creates an enum correctly', function (): void {
     $this->artisan('somake:enum')
         ->expectsQuestion('What is the Enum name ?', 'Status')
-        ->expectsQuestion('Do you want it to be in a Domain ? Say no if you want it in Support', true)
-        ->expectsOutput('I detected 1 domain.')
-        ->expectsTable(['Domain'], [['User']])
+        ->expectsQuestion('Where do you want it to be created ?', 'Domain')
         ->expectsQuestion('What is the Domain ?', 'Blog')
-        ->expectsOutput('The Domain\\Blog\\Enums\\Status enum was successfully created !')
+        ->expectsOutputToContain('The Domain\\Blog\\Enums\\Status enum was successfully created !')
         ->assertExitCode(0)
         ->execute();
 
@@ -19,8 +17,8 @@ it('creates an enum correctly', function (): void {
 it('creates an enum in support', function (): void {
     $this->artisan('somake:enum')
         ->expectsQuestion('What is the Enum name ?', 'Status')
-        ->expectsQuestion('Do you want it to be in a Domain ? Say no if you want it in Support', false)
-        ->expectsOutput('The Support\\Enums\\Status enum was successfully created !')
+        ->expectsQuestion('Where do you want it to be created ?', 'Support')
+        ->expectsOutputToContain('The Support\\Enums\\Status enum was successfully created !')
         ->assertExitCode(0)
         ->execute();
 

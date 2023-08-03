@@ -3,7 +3,7 @@
 it('creates the builder correctly', function (): void {
     $this->artisan('somake:builder')
         ->expectsQuestion('What is the Model ?', 'User')
-        ->expectsOutput('The Domain\\User\\Builders\\UserBuilder class was successfully created !')
+        ->expectsOutputToContain('The Domain\\User\\Builders\\UserBuilder class was successfully created !')
         ->expectsQuestion('Do you want to add implementation of newEloquentBuilder in Domain\\User\\Models\\User ?', true)
         ->assertExitCode(0)
         ->execute();

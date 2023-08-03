@@ -2,24 +2,18 @@
 
 namespace Soyhuce\Somake\Commands\Concerns;
 
+use function Laravel\Prompts\confirm;
+
 trait CreatesAssociatedUnitTest
 {
     use StartsArtisan;
 
     protected function createUnitTest(string $class): void
     {
-        if (!$this->confirm("Do you want to create a Unit Test for {$class} ?", true)) {
+        if (!confirm("Do you want to create a Unit Test for {$class} ?")) {
             return;
         }
 
         $this->startArtisanProcess('somake:test --type=Unit --class=' . str_replace('\\', '\\\\', $class));
     }
-
-    /**
-     * @param string $question
-     * @param bool $default
-     * @return bool
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
-     */
-    abstract public function confirm($question, $default = false);
 }

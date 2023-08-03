@@ -14,6 +14,9 @@ use Soyhuce\Somake\Domains\Test\UnitTestGenerator;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function in_array;
+use function Laravel\Prompts\outro;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\text;
 
 class TestCommand extends Command
 {
@@ -37,14 +40,18 @@ class TestCommand extends Command
             default => throw new RuntimeException('Unknown test type : ' . $type),
         };
 
-        $this->info("The {$testFqcn} class was successfully created !");
+        outro("The {$testFqcn} class was successfully created !");
     }
 
     private function handleContract(Finder $finder, Writer $writer): string
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
         $method = $this->askMethod('Which method do you want to cover ?', $controller);
-        $testName = $this->ask('What is the Test name ?', (new TestNameGuesser())->guess($controller, $method));
+        $testName = text(
+            label: 'What is the Test name ?',
+            default: (new TestNameGuesser())->guess($controller, $method),
+            required: true
+        );
 
         $testClass = sprintf(
             'Tests\\Contract\\%s\\%s',
@@ -64,7 +71,11 @@ class TestCommand extends Command
     {
         $controller = $this->askClass('Which controller do you want to cover ?', $finder->controllers());
         $method = $this->askMethod('Which method do you want to cover ?', $controller);
-        $testName = $this->ask('What is the Test name ?', (new TestNameGuesser())->guess($controller, $method));
+        $testName = text(
+            label: 'What is the Test name ?',
+            default: (new TestNameGuesser())->guess($controller, $method),
+            required: true
+        );
 
         $testClass = sprintf(
             'Tests\\Feature\\%s\\%s',
@@ -98,10 +109,13 @@ class TestCommand extends Command
     {
         $types = ['Contract', 'Feature', 'Unit'];
 
-        if (in_array($this->option('type'), $types)) {
+        if (in_array($this->option('type'), $types, true)) {
             return $this->option('type');
         }
 
-        return $this->choice('Which kind of test do you want to create ?', $types);
+        return select(
+            label: 'Which kind of test do you want to create ?',
+            options: $types
+        );
     }
 }
