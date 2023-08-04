@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 2.0.0 - 2023-08-04
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/39
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/40
+- Drop support of Laravel 9, use Laravel prompts by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/41
+- Allow searching suggestions inside the values by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/42
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/1.6.0...2.0.0
+
 ## 1.6.0 - 2023-04-28
 
 ### What's Changed
