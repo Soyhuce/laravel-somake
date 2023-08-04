@@ -7,6 +7,8 @@ use function Laravel\Prompts\suggest;
 
 trait AsksApplication
 {
+    use WrapsSuggestions;
+
     /**
      * @param \Illuminate\Support\Collection<int, string> $applications
      */
@@ -14,7 +16,7 @@ trait AsksApplication
     {
         return suggest(
             label: 'What is the Application ?',
-            options: $applications,
+            options: $this->wrapSuggestions($applications),
             required: true
         );
     }
@@ -26,7 +28,7 @@ trait AsksApplication
     {
         return suggest(
             label: "You may want {$classname} to live in a sub namespace. Which one ?",
-            options: $domains ?? [],
+            options: $this->wrapSuggestions($domains ?? Collection::make()),
             placeholder: 'Leave it empty if you want to leave it in root namespace.'
         );
     }

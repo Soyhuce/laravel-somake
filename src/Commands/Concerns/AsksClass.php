@@ -11,6 +11,8 @@ use function Laravel\Prompts\warning;
 
 trait AsksClass
 {
+    use WrapsSuggestions;
+
     /**
      * @param Collection<int, class-string> $classes
      * @return class-string
@@ -31,9 +33,11 @@ trait AsksClass
 
         $class = suggest(
             label: $question,
-            options: $classes->map(fn (string $class) => class_basename($class))
-                ->sort()
-                ->merge($classes->sort()),
+            options: $this->wrapSuggestions(
+                $classes->map(fn (string $class) => class_basename($class))
+                    ->sort()
+                    ->merge($classes->sort())
+            ),
             required: true
         );
 

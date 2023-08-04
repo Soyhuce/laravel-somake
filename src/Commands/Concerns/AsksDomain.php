@@ -7,6 +7,8 @@ use function Laravel\Prompts\suggest;
 
 trait AsksDomain
 {
+    use WrapsSuggestions;
+
     /**
      * @param \Illuminate\Support\Collection<int, string> $domains
      */
@@ -14,7 +16,7 @@ trait AsksDomain
     {
         return suggest(
             label: 'What is the Domain ?',
-            options: $domains,
+            options: $this->wrapSuggestions($domains),
             required: true
         );
     }

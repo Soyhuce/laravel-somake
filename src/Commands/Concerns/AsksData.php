@@ -11,6 +11,8 @@ use function Laravel\Prompts\warning;
 
 trait AsksData
 {
+    use WrapsSuggestions;
+
     /**
      * @param \Illuminate\Support\Collection<int, class-string<\Spatie\LaravelData\Data>> $datas
      * @return class-string<\Spatie\LaravelData\Data>
@@ -27,9 +29,11 @@ trait AsksData
 
         $data = suggest(
             label: 'What is the Data ?',
-            options: $datas->map(fn (string $data) => class_basename($data))
-                ->sort()
-                ->merge($datas->sort()),
+            options: $this->wrapSuggestions(
+                $datas->map(fn (string $data) => class_basename($data))
+                    ->sort()
+                    ->merge($datas->sort())
+            ),
             required: true
         );
 
