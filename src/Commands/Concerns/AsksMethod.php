@@ -9,6 +9,8 @@ use function Laravel\Prompts\suggest;
 
 trait AsksMethod
 {
+    use WrapsSuggestions;
+
     /**
      * @param class-string $class
      */
@@ -24,7 +26,7 @@ trait AsksMethod
 
         return suggest(
             label: $question,
-            options: $methods,
+            options: $this->wrapSuggestions($methods),
             required: true
         );
     }

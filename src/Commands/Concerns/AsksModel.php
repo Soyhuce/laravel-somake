@@ -11,6 +11,8 @@ use function Laravel\Prompts\warning;
 
 trait AsksModel
 {
+    use WrapsSuggestions;
+
     /**
      * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      * @return class-string<\Illuminate\Database\Eloquent\Model>
@@ -31,9 +33,11 @@ trait AsksModel
 
         $model = suggest(
             label: 'What is the Model ?',
-            options: $models->map(fn (string $model) => class_basename($model))
-                ->sort()
-                ->merge($models->sort()),
+            options: $this->wrapSuggestions(
+                $models->map(fn (string $model) => class_basename($model))
+                    ->sort()
+                    ->merge($models->sort())
+            ),
             required: true,
         );
 
