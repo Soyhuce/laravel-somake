@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 2.1.0 - 2023-08-11
+
+### What's Changed
+
+- Add event and listener by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/43
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/2.0.0...2.1.0
+
 ## 2.0.0 - 2023-08-04
 
 ### What's Changed
