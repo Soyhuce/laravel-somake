@@ -10,6 +10,7 @@ use Soyhuce\Somake\Commands\CommandCommand;
 use Soyhuce\Somake\Commands\ControllerCommand;
 use Soyhuce\Somake\Commands\DataCommand;
 use Soyhuce\Somake\Commands\EnumCommand;
+use Soyhuce\Somake\Commands\EventCommand;
 use Soyhuce\Somake\Commands\FactoryCommand;
 use Soyhuce\Somake\Commands\MiddlewareCommand;
 use Soyhuce\Somake\Commands\MigrationCommand;
@@ -40,6 +41,7 @@ class SomakeServiceProvider extends PackageServiceProvider
                 ControllerCommand::class,
                 DataCommand::class,
                 EnumCommand::class,
+                EventCommand::class,
                 FactoryCommand::class,
                 MiddlewareCommand::class,
                 MigrationCommand::class,
