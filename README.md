@@ -46,15 +46,16 @@ The configuration of generated classes is done via interactive questions.
 
 ### Domain
 
-| Commande         | Description      | Generation path                |
-|------------------|------------------|--------------------------------|
-| `somake:action`  | Action           | `app/Domain/[domain]/Actions`  |
-| `somake:builder` | Eloquent Builder | `app/Domain/[domain]/Builders` |
-| `somake:data`    | Data             | `app/Domain/[domain]/Data`     |
-| `somake:enum`    | Enum             | `app/Domain/[domain]/Enums`    |
-| `somake:event`   | Event            | `app/Domain/[domain]/Events`   |
-| `somake:model`   | Model            | `app/Domain/[domain]/Models`   |
-| `somake:policy`  | Policy           | `app/Domain/[domain]/Policies` |
+| Commande          | Description      | Generation path                 |
+|-------------------|------------------|---------------------------------|
+| `somake:action`   | Action           | `app/Domain/[domain]/Actions`   |
+| `somake:builder`  | Eloquent Builder | `app/Domain/[domain]/Builders`  |
+| `somake:data`     | Data             | `app/Domain/[domain]/Data`      |
+| `somake:enum`     | Enum             | `app/Domain/[domain]/Enums`     |
+| `somake:event`    | Event            | `app/Domain/[domain]/Events`    |
+| `somake:listener` | Listener         | `app/Domain/[domain]/Listeners` |
+| `somake:model`    | Model            | `app/Domain/[domain]/Models`    |
+| `somake:policy`   | Policy           | `app/Domain/[domain]/Policies`  |
 
 ### Support
 

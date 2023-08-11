@@ -91,6 +91,23 @@ class Finder
     }
 
     /**
+     * @return \Illuminate\Support\Collection<int, class-string>
+     */
+    public function events(): Collection
+    {
+        return Collection::make(File::glob($this->domainPath('*/Events')))
+            ->flatMap(fn (string $path) => array_keys(ClassMapGenerator::createMap($path)))
+            ->filter(function (string $class) {
+                try {
+                    return class_exists($class);
+                } catch (Throwable) {
+                    return false;
+                }
+            })
+            ->values();
+    }
+
+    /**
      * @return \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>>
      */
     public function models(): Collection
@@ -118,7 +135,7 @@ class Finder
     public function classes(): Collection
     {
         return collect([$this->applicationRootPath(), $this->domainRootPath(), $this->supportRootPath()])
-            ->flatMap(fn (string $path) => collect(ClassMapGenerator::createMap($path))->keys())
+            ->flatMap(fn (string $path) => array_keys(ClassMapGenerator::createMap($path)))
             ->filter(function (string $class) {
                 try {
                     return class_exists($class) || trait_exists($class);
