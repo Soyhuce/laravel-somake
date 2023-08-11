@@ -117,3 +117,16 @@ it('creates correctly the unit test for middleware', function (): void {
         ->toBeFile()
         ->toMatchFileSnapshot();
 });
+
+it('creates correctly the unit test for listener', function (): void {
+    $this->artisan('somake:test')
+        ->expectsQuestion('Which kind of test do you want to create ?', 'Unit')
+        ->expectsQuestion('Which class do you want to cover ?', 'IncrementUserStatistics')
+        ->expectsOutputToContain('The Tests\\Unit\\Domain\\User\\Listeners\\IncrementUserStatisticsTest class was successfully created !')
+        ->assertExitCode(0)
+        ->execute();
+
+    expect($this->app->basePath('tests/Unit/Domain/User/Listeners/IncrementUserStatisticsTest.php'))
+        ->toBeFile()
+        ->toMatchFileSnapshot();
+});
