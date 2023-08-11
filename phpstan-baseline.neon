@@ -61,6 +61,36 @@ parameters:
 			path: src/Commands/FactoryCommand.php
 
 		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns non\\-empty\\-string\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns string\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns string\\|null\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:disambiguateClass\\(\\) should return string but returns int\\|string\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:qualifyEvent\\(\\) should return class\\-string but returns string\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<int, class\\-string\\> given\\.$#"
+			count: 1
+			path: src/Commands/ListenerCommand.php
+
+		-
 			message: "#^Property Illuminate\\\\Database\\\\Console\\\\Migrations\\\\MigrateMakeCommand\\:\\:\\$signature \\(string\\) does not accept array\\<string\\>\\|string\\.$#"
 			count: 1
 			path: src/Commands/MigrationCommand.php
