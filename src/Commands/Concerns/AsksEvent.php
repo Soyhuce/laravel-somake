@@ -50,7 +50,7 @@ trait AsksEvent
         return match ($guessedEvents->count()) {
             0 => $this->qualifyEvent($question, $event),
             1 => $guessedEvents->first(),
-            default => $this->disambiguateClass($guessedEvents)
+            default => $this->disambiguateEvent($guessedEvents)
         };
     }
 
@@ -71,15 +71,15 @@ trait AsksEvent
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, class-string> $guessedClasses
+     * @param \Illuminate\Support\Collection<int, class-string> $guessedEvents
      */
-    private function disambiguateClass(Collection $guessedClasses): string
+    private function disambiguateEvent(Collection $guessedEvents): string
     {
         warning('I\'m not sure which class you choose...');
 
         return select(
             label: 'Which one should I choose ?',
-            options: $guessedClasses
+            options: $guessedEvents->keyBy(fn (string $fqcn) => $fqcn)
         );
     }
 }
