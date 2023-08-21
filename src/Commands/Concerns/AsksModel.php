@@ -77,7 +77,7 @@ trait AsksModel
 
         return select(
             label: 'Which one should I choose ?',
-            options: $models,
+            options: $models->keyBy(fn (string $fqcn) => $fqcn),
         );
     }
 }

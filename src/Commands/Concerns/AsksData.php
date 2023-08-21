@@ -76,7 +76,7 @@ trait AsksData
 
         return select(
             label: 'Which one should I choose ?',
-            options: $datas
+            options: $datas->keyBy(fn (string $fqcn) => $fqcn)
         );
     }
 }

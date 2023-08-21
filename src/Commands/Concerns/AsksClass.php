@@ -82,7 +82,7 @@ trait AsksClass
 
         return select(
             label: 'Which one should I choose ?',
-            options: $guessedClasses
+            options: $guessedClasses->keyBy(fn (string $fqcn) => $fqcn)
         );
     }
 }

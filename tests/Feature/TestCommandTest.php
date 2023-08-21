@@ -53,6 +53,8 @@ it('creates correctly the feature test with invokable controller', function (): 
     $this->artisan('somake:test')
         ->expectsQuestion('Which kind of test do you want to create ?', 'Feature')
         ->expectsQuestion('Which controller do you want to cover ?', 'InvokableVideoController')
+        ->expectsOutputToContain('I\'m not sure which class you choose...')
+        ->expectsQuestion('Which one should I choose ?', 'App\\Website\\Videos\\Controllers\\InvokableVideoController')
         ->expectsQuestion('Which method do you want to cover ?', '__invoke')
         ->expectsQuestion('What is the Test name ?', 'IndexVideosTest')
         ->expectsOutputToContain('The Tests\\Feature\\Website\\Videos\\InvokableVideoController\\IndexVideosTest class was successfully created !')
