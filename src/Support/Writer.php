@@ -4,11 +4,8 @@ namespace Soyhuce\Somake\Support;
 
 class Writer
 {
-    protected Composer $composer;
-
-    public function __construct(Composer $composer)
+    public function __construct(protected Composer $composer)
     {
-        $this->composer = $composer;
     }
 
     /**

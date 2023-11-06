@@ -24,16 +24,12 @@ class MigrationCommand extends MigrateMakeCommand
     public function handle(): void
     {
         $initialFiles = (new Collection(File::allFiles($this->getMigrationPath())))
-            ->map(function (SplFileInfo $file) {
-                return $file->getPathname();
-            });
+            ->map(fn (SplFileInfo $file) => $file->getPathname());
 
         parent::handle();
 
         $finalFiles = (new Collection(File::allFiles($this->getMigrationPath())))
-            ->map(function (SplFileInfo $file) {
-                return $file->getPathname();
-            });
+            ->map(fn (SplFileInfo $file) => $file->getPathname());
 
         $finalFiles->diff($initialFiles)->each(function (string $file): void {
             Event::dispatch(new FileWritten($file));

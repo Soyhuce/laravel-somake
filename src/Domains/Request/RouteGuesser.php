@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class RouteGuesser
 {
-    private ?Route $route;
+    private readonly ?Route $route;
 
     public function __construct(string $controller, string $method)
     {

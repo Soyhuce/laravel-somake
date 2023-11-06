@@ -61,12 +61,10 @@ class SomakeServiceProvider extends PackageServiceProvider
         $this->app->singleton(Composer::class);
         $this->app->singleton(FileOpener::class);
 
-        $this->app->singleton(MigrationCommand::class, function ($app) {
-            return new MigrationCommand(
-                new MigrationCreator($app['files'], __DIR__ . '/../resources/stubs'),
-                $app['composer']
-            );
-        });
+        $this->app->singleton(MigrationCommand::class, fn ($app) => new MigrationCommand(
+            new MigrationCreator($app['files'], __DIR__ . '/../resources/stubs'),
+            $app['composer']
+        ));
     }
 
     public function bootingPackage(): void
