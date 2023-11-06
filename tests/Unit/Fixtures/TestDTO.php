@@ -20,7 +20,7 @@ class TestDTO extends DataTransferObject
 
     public array $array;
 
-    public ?string $nullableString;
+    public ?string $nullableString = null;
 
     public $noType;
 
@@ -38,5 +38,5 @@ class TestDTO extends DataTransferObject
 
     public NestedDTO $dto;
 
-    public ?NestedDTO $nullableDto;
+    public ?NestedDTO $nullableDto = null;
 }
