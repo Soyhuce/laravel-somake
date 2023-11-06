@@ -12,17 +12,14 @@ use Throwable;
 
 class Finder
 {
-    protected Composer $composer;
-
     protected ?string $applicationRootPath = null;
 
     protected ?string $domainRootPath = null;
 
     protected ?string $supportRootPath = null;
 
-    public function __construct(Composer $composer)
+    public function __construct(protected Composer $composer)
     {
-        $this->composer = $composer;
     }
 
     /**

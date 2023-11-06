@@ -15,7 +15,7 @@ use Throwable;
  */
 class JsonResourceTestGenerator implements UnitTestGenerator
 {
-    private DocBlock $docBlock;
+    private readonly DocBlock $docBlock;
 
     public function __construct()
     {

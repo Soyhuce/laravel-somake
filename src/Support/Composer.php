@@ -56,6 +56,6 @@ class Composer
 
         $suffix = (string) Str::of($path)->after($rootPath)->replace(DIRECTORY_SEPARATOR, '\\');
 
-        return rtrim(rtrim($rootNamespace, '\\') . $suffix, '\\');
+        return rtrim(rtrim((string) $rootNamespace, '\\') . $suffix, '\\');
     }
 }

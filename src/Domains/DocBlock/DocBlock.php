@@ -15,9 +15,9 @@ use function in_array;
 
 class DocBlock
 {
-    private PhpDocParser $phpDocParser;
+    private readonly PhpDocParser $phpDocParser;
 
-    private Lexer $lexer;
+    private readonly Lexer $lexer;
 
     public function __construct()
     {
