@@ -10,7 +10,7 @@ use function in_array;
 
 class Model
 {
-    private readonly DocBlock $docBlock;
+    private DocBlock $docBlock;
 
     /**
      * @param class-string<\Illuminate\Database\Eloquent\Model> $class

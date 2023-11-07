@@ -12,14 +12,20 @@ use function dirname;
 
 class PendingWriter
 {
+    protected Composer $composer;
+
+    protected string $stub;
+
     /** @var \Illuminate\Support\Collection<string, mixed> */
     protected Collection $data;
 
     /**
      * @param array<string, string> $data
      */
-    public function __construct(protected Composer $composer, protected string $stub, array $data)
+    public function __construct(Composer $composer, string $stub, array $data)
     {
+        $this->composer = $composer;
+        $this->stub = $stub;
         $this->data = collect($data);
     }
 
