@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 2.2.0 - 2023-11-24
+
+### What's Changed
+
+- Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/47
+- Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/46
+- Run tests on PHP 8.3 by @EdenMl in https://github.com/Soyhuce/laravel-somake/pull/48
+
+### New Contributors
+
+- @EdenMl made their first contribution in https://github.com/Soyhuce/laravel-somake/pull/48
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/2.1.1...2.2.0
+
 ## 2.1.1 - 2023-08-22
 
 ### What's Changed
