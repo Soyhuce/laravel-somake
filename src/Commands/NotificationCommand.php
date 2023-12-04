@@ -4,6 +4,7 @@ namespace Soyhuce\Somake\Commands;
 
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\AsksDomain;
+use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
 use function Laravel\Prompts\outro;
@@ -12,6 +13,7 @@ use function Laravel\Prompts\text;
 class NotificationCommand extends Command
 {
     use AsksDomain;
+    use CreatesAssociatedUnitTest;
 
     /** @var string */
     public $signature = 'somake:notification';
@@ -40,5 +42,7 @@ class NotificationCommand extends Command
         $notificationFqcn = "Domain\\{$domain}\\Notifications\\{$notification}";
 
         outro("The {$notificationFqcn} class was successfully created !");
+
+        $this->createUnitTest($notificationFqcn);
     }
 }
