@@ -4,7 +4,6 @@ it('creates the notification correctly', function (): void {
     $this->artisan('somake:notification')
         ->expectsQuestion('What is the Notification name ?', 'WelcomeNotification')
         ->expectsQuestion('Should the notification be queued ?', true)
-        ->expectsQuestion('Should the notification be multilingual ?', true)
         ->expectsQuestion('What is the Domain ?', 'User')
         ->expectsOutputToContain('The Domain\\User\\Notifications\\WelcomeNotification class was successfully created !')
         ->assertExitCode(0)
@@ -15,11 +14,10 @@ it('creates the notification correctly', function (): void {
         ->toMatchFileSnapshot();
 });
 
-it('creates the notification not queued and without multilingual', function (): void {
+it('creates the notification not queued', function (): void {
     $this->artisan('somake:notification')
         ->expectsQuestion('What is the Notification name ?', 'WelcomeNotification')
         ->expectsQuestion('Should the notification be queued ?', false)
-        ->expectsQuestion('Should the notification be multilingual ?', false)
         ->expectsQuestion('What is the Domain ?', 'User')
         ->expectsOutputToContain('The Domain\\User\\Notifications\\WelcomeNotification class was successfully created !')
         ->assertExitCode(0)

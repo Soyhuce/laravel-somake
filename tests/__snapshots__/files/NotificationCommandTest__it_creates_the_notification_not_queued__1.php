@@ -4,6 +4,7 @@ namespace Domain\User\Notifications;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Lang;
 
 class WelcomeNotification extends Notification 
 {
@@ -22,6 +23,6 @@ class WelcomeNotification extends Notification
     public function toMail(): MailMessage
     {
         return (new MailMessage())
-            ->subject('Welcome to our platform');
+            ->subject(Lang::get('Welcome to our platform'));
     }
 }

@@ -25,8 +25,6 @@ class NotificationCommand extends Command
 
         $queued = $this->confirm(question: 'Should the notification be queued ?');
 
-        $multilingual = $this->confirm(question: 'Should the notification be multilingual ?', default: true);
-
         $domain = $this->askDomain($finder->domains());
 
         $writer
@@ -35,7 +33,6 @@ class NotificationCommand extends Command
                 [
                     'notification' => $notification,
                     'queued' => $queued,
-                    'multilingual' => $multilingual,
                 ]
             )
             ->toPath($finder->domainPath("{$domain}/Notifications/{$notification}.php"));
