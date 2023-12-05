@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 it('uses the mail channel', function (): void {
     $notification = new AccountCreatedNotification();
 
-    expect($notification->via())->toContain('mail');
+    expect($notification->via())->toBe(['mail']);
 });
 
 it('formats the mail', function (): void {
