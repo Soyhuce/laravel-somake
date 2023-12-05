@@ -5,7 +5,6 @@ namespace Domain\User\Notifications;
 use Domain\User\Models\User;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Lang;
 
 class AccountCreatedNotification extends Notification
 {
@@ -20,9 +19,9 @@ class AccountCreatedNotification extends Notification
     public function toMail(User $user): MailMessage
     {
         return (new MailMessage())
-            ->greeting(Lang::get('Hello :name,', ['name' => $user->name]))
-            ->subject(Lang::get('Your account has been created'))
-            ->line(Lang::get('Your account has been created, you can now connect to the platform using your usual credentials.'))
-            ->action(Lang::get('Connect'), url('/'));
+            ->greeting(trans('Hello :name,', ['name' => $user->name]))
+            ->subject(trans('Your account has been created'))
+            ->line(trans('Your account has been created, you can now connect to the platform using your usual credentials.'))
+            ->action(trans('Connect'), url('/'));
     }
 }

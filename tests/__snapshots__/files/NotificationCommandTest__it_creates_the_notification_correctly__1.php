@@ -4,7 +4,6 @@ namespace Domain\User\Notifications;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -27,6 +26,6 @@ class WelcomeNotification extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         return (new MailMessage())
-            ->subject(Lang::get('Welcome to our platform'));
+            ->subject(trans('Welcome to our platform'));
     }
 }

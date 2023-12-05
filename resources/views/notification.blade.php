@@ -2,7 +2,6 @@ namespace {{ $namespace }};
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Lang;
 @if($queued)
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,6 +29,6 @@ class {{ $notification }} extends Notification @if($queued)implements ShouldQueu
     public function toMail(): MailMessage
     {
         return (new MailMessage())
-            ->subject(Lang::get('Welcome to our platform'));
+            ->subject(trans('Welcome to our platform'));
     }
 }
