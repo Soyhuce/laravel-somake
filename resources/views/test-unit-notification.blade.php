@@ -1,19 +1,22 @@
 /* @@covers \{{ $covered }} */
 
 use {{ $classFqcn }};
+use Illuminate\Notifications\Messages\MailMessage;
 
 it('formats the mail', function (): void {
     $notification = new {{ $classBasename }}();
 
-    $this->assertEquals(['mail'], $notification->via());
+    expect($notification->via())->toBe(['mail']);
 
     $mail = $notification->toMail();
 
-    $this->assertEquals('', $mail->subject);
-    $this->assertEquals('', $mail->greeting);
-    $this->assertEquals([''], $mail->introLines);
-    $this->assertEquals('', $mail->actionText);
-    $this->assertEquals('', $mail->actionUrl);
-    $this->assertEquals([''], $mail->outroLines);
-    $this->assertEquals('', $mail->salutation);
+    expect($mail)
+        ->toBeInstanceOf(MailMessage::class)
+        ->subject->toBe('')
+        ->greeting->toBe('')
+        ->introLines->toBe([''])
+        ->actionText->toBe('')
+        ->actionUrl->toBeUrl()->toBe('')
+        ->outroLines->toBe([''])
+        ->salutation->toBe('');
 });
