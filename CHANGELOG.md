@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 2.3.0 - 2023-12-05
+
+### What's Changed
+
+* Add somake:notification command by @EdenMl in https://github.com/Soyhuce/laravel-somake/pull/49
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/2.2.0...2.3.0
+
 ## 2.2.0 - 2023-11-24
 
 ### What's Changed
