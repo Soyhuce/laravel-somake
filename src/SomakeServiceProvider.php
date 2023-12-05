@@ -16,6 +16,7 @@ use Soyhuce\Somake\Commands\ListenerCommand;
 use Soyhuce\Somake\Commands\MiddlewareCommand;
 use Soyhuce\Somake\Commands\MigrationCommand;
 use Soyhuce\Somake\Commands\ModelCommand;
+use Soyhuce\Somake\Commands\NotificationCommand;
 use Soyhuce\Somake\Commands\PolicyCommand;
 use Soyhuce\Somake\Commands\ProviderCommand;
 use Soyhuce\Somake\Commands\RequestCommand;
@@ -48,6 +49,7 @@ class SomakeServiceProvider extends PackageServiceProvider
                 MiddlewareCommand::class,
                 MigrationCommand::class,
                 ModelCommand::class,
+                NotificationCommand::class,
                 PolicyCommand::class,
                 ProviderCommand::class,
                 RequestCommand::class,
