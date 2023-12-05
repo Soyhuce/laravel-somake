@@ -5,12 +5,14 @@
 use Domain\User\Notifications\AccountCreatedNotification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-it('formats the mail', function (): void {
+it('uses the mail channel', function (): void {
     $notification = new AccountCreatedNotification();
 
-    expect($notification->via())->toBe(['mail']);
+    expect($notification->via())->toContain('mail');
+});
 
-    $mail = $notification->toMail();
+it('formats the mail', function (): void {
+    $mail = (new AccountCreatedNotification())->toMail();
 
     expect($mail)
         ->toBeInstanceOf(MailMessage::class)

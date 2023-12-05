@@ -3,12 +3,14 @@
 use {{ $classFqcn }};
 use Illuminate\Notifications\Messages\MailMessage;
 
-it('formats the mail', function (): void {
+it('uses the mail channel', function (): void {
     $notification = new {{ $classBasename }}();
 
-    expect($notification->via())->toBe(['mail']);
+    expect($notification->via())->toContain('mail');
+});
 
-    $mail = $notification->toMail();
+it('formats the mail', function (): void {
+    $mail = (new {{ $classBasename }}())->toMail();
 
     expect($mail)
         ->toBeInstanceOf(MailMessage::class)
