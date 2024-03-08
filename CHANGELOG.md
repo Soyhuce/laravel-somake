@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 2.4.0 - 2024-03-08
+
+### What's Changed
+
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/50
+* Support Laravel 11, laravel-data 4 by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/51
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/2.3.0...2.4.0
+
 ## 2.3.0 - 2023-12-05
 
 ### What's Changed
