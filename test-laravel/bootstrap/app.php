@@ -11,7 +11,7 @@
 |
 */
 
-$app = new \Support\BaseApplication(
+$app = new Support\BaseApplication(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 

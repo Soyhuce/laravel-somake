@@ -19,7 +19,7 @@ class Composer
     }
 
     /**
-     * @throws \Soyhuce\Somake\Exceptions\PSR4NamespaceNotFound
+     * @throws PSR4NamespaceNotFound
      */
     public function findPath(string $namespace): string
     {
@@ -38,7 +38,7 @@ class Composer
     }
 
     /**
-     * @throws \Soyhuce\Somake\Exceptions\PSR4PathNotFound
+     * @throws PSR4PathNotFound
      */
     public function findNamespace(string $path): string
     {

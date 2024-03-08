@@ -15,11 +15,11 @@ class HttpKernel extends Kernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        \Support\Http\Middleware\TrustProxies::class,
+        Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
-        \Support\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \Support\Http\Middleware\TrimStrings::class,
+        Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -30,12 +30,12 @@ class HttpKernel extends Kernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Support\Http\Middleware\EncryptCookies::class,
+            Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Support\Http\Middleware\VerifyCsrfToken::class,
+            Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -53,11 +53,11 @@ class HttpKernel extends Kernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Support\Http\Middleware\Authenticate::class,
+        'auth' => Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \Support\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

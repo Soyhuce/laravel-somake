@@ -3,7 +3,7 @@
 it('creates the listener correctly', function (): void {
     $this->artisan('somake:listener')
         ->expectsQuestion('What is the Listener name ?', 'SendWelcomeEmail')
-        ->expectsQuestion('Which event should the listener listen to ?', \Domain\User\Events\UserRegistered::class)
+        ->expectsQuestion('Which event should the listener listen to ?', Domain\User\Events\UserRegistered::class)
         ->expectsQuestion('Should the listener be queued ?', true)
         ->expectsQuestion('What is the Domain ?', 'User')
         ->expectsOutputToContain('The Domain\\User\\Listeners\\SendWelcomeEmail class was successfully created !')
