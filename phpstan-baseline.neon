@@ -91,11 +91,6 @@ parameters:
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Property Illuminate\\\\Database\\\\Console\\\\Migrations\\\\MigrateMakeCommand\\:\\:\\$signature \\(string\\) does not accept array\\<string\\>\\|string\\.$#"
-			count: 1
-			path: src/Commands/MigrationCommand.php
-
-		-
 			message: "#^Command \"somake\\:policy\" does not have option \"model\"\\.$#"
 			count: 2
 			path: src/Commands/PolicyCommand.php
@@ -239,11 +234,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$subject of static method Illuminate\\\\Support\\\\Str\\:\\:after\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: src/Domains/Model/Model.php
-
-		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Domains\\\\Request\\\\RouteGuesser\\:\\:url\\(\\) should return string but returns array\\<string\\>\\|string\\.$#"
-			count: 1
-			path: src/Domains/Request/RouteGuesser.php
 
 		-
 			message: "#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
