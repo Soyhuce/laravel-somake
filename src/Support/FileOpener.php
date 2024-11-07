@@ -3,8 +3,10 @@
 namespace Soyhuce\Somake\Support;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Env;
 use Spatie\Fork\Fork;
 use Symfony\Component\Process\Process;
+use function is_string;
 
 class FileOpener
 {
@@ -27,8 +29,8 @@ class FileOpener
             return;
         }
 
-        $ide = env('IDE');
-        if ($ide === null) {
+        $ide = Env::get('IDE');
+        if (!is_string($ide)) {
             return;
         }
 
