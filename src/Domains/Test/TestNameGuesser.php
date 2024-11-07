@@ -3,6 +3,7 @@
 namespace Soyhuce\Somake\Domains\Test;
 
 use Illuminate\Support\Str;
+use function sprintf;
 
 class TestNameGuesser
 {

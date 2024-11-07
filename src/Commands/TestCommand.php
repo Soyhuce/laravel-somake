@@ -17,6 +17,7 @@ use function in_array;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
+use function sprintf;
 
 class TestCommand extends Command
 {
