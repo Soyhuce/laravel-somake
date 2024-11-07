@@ -10,6 +10,7 @@ use PHPStan\PhpDocParser\Parser\ConstExprParser;
 use PHPStan\PhpDocParser\Parser\PhpDocParser;
 use PHPStan\PhpDocParser\Parser\TokenIterator;
 use PHPStan\PhpDocParser\Parser\TypeParser;
+use PHPStan\PhpDocParser\ParserConfig;
 use ReflectionClass;
 use function in_array;
 
@@ -21,9 +22,12 @@ class DocBlock
 
     public function __construct()
     {
-        $constExprParser = new ConstExprParser();
-        $this->lexer = new Lexer();
-        $this->phpDocParser = new PhpDocParser(new TypeParser($constExprParser), $constExprParser);
+        $config = new ParserConfig([]);
+        $constExprParser = new ConstExprParser($config);
+        $typeParser = new TypeParser($config, $constExprParser);
+
+        $this->lexer = new Lexer($config);
+        $this->phpDocParser = new PhpDocParser($config, $typeParser, $constExprParser);
     }
 
     /**

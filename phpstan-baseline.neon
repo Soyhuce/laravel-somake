@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Command \"somake\\:builder\" does not have option \"model\"\\.$#"
-			count: 2
-			path: src/Commands/BuilderCommand.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: src/Commands/BuilderCommand.php
-
-		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php
@@ -31,18 +21,18 @@ parameters:
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\.$#"
-			count: 3
+			count: 2
 			path: src/Commands/FactoryCommand.php
 
 		-
@@ -56,7 +46,7 @@ parameters:
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
@@ -86,19 +76,9 @@ parameters:
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string, class\\-string\\> given\\.$#"
 			count: 1
 			path: src/Commands/ListenerCommand.php
-
-		-
-			message: "#^Command \"somake\\:policy\" does not have option \"model\"\\.$#"
-			count: 2
-			path: src/Commands/PolicyCommand.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: src/Commands/PolicyCommand.php
 
 		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
@@ -121,7 +101,7 @@ parameters:
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
@@ -151,19 +131,9 @@ parameters:
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\<Spatie\\\\LaravelData\\\\Data\\>\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Spatie\\\\LaravelData\\\\Data\\>, class\\-string\\<Spatie\\\\LaravelData\\\\Data\\>\\> given\\.$#"
 			count: 1
 			path: src/Commands/RequestCommand.php
-
-		-
-			message: "#^Command \"somake\\:resource\" does not have option \"model\"\\.$#"
-			count: 2
-			path: src/Commands/ResourceCommand.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: src/Commands/ResourceCommand.php
 
 		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
@@ -186,18 +156,18 @@ parameters:
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
+			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns array\\|bool\\|string\\.$#"
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
 			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns string\\.$#"
-			count: 3
+			count: 2
 			path: src/Commands/TestCommand.php
 
 		-
@@ -221,7 +191,7 @@ parameters:
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), class\\-string\\> given\\.$#"
+			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string, class\\-string\\> given\\.$#"
 			count: 1
 			path: src/Commands/TestCommand.php
 
