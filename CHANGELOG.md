@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 3.0.0 - 2024-11-21
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/53
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/55
+* Upgrade dependencies by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/54
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/2.4.0...3.0.0
+
 ## 2.4.0 - 2024-03-08
 
 ### What's Changed
