@@ -1,9 +1,9 @@
 # An opinionated package to generate classes in your Laravel project
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soyhuce/laravel-somake.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-somake)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-somake/run-tests?label=tests)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-somake/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![GitHub PHPStan Action Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-somake/PHPStan?label=phpstan)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3APHPStan+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/soyhuce/laravel-somake/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/soyhuce/laravel-somake/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub PHPStan Action Status](https://img.shields.io/github/workflow/status/soyhuce/laravel-somake/phpstan.yml?branch=main&label=PHPStan&style=flat-square)](https://github.com/soyhuce/laravel-somake/actions?query=workflow%3A"PHPStan"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/soyhuce/laravel-somake.svg?style=flat-square)](https://packagist.org/packages/soyhuce/laravel-somake)
 
 A set of commands to easily generate classes on the right place.
