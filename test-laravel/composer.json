@@ -11,7 +11,7 @@
     "php": "^8.2"
   },
   "require-dev": {
-    "spatie/laravel-data": "^3.0 || ^4.0"
+    "spatie/laravel-data": "^4.0"
   },
   "config": {
     "optimize-autoloader": true,

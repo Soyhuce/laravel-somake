@@ -31,12 +31,12 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.7",
         "nunomaduro/collision": "^7.7 || ^8.0",
-        "larastan/larastan": "^2.6.4",
+        "larastan/larastan": "^3.0",
         "orchestra/testbench": "^8.0 || ^9.0",
         "pestphp/pest": "^2.12",
         "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
         "spatie/laravel-data": "^3.0 || ^4.0",
         "spatie/pest-plugin-snapshots": "^2.0.1",
         "test-laravel/test-laravel": "*"

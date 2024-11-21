@@ -1,227 +1,290 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: config/somake.php
+
+		-
+			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\BuilderCommand\\:\\:disambiguateModel\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:disambiguateModel\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string\<Illuminate\\Database\\Eloquent\\Model\>, class\-string\<Illuminate\\Database\\Eloquent\\Model\>\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\FactoryCommand\\:\\:disambiguateModel\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:disambiguateModel\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string\<Illuminate\\Database\\Eloquent\\Model\>, class\-string\<Illuminate\\Database\\Eloquent\\Model\>\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/FactoryCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns non\\-empty\\-string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ListenerCommand\:\:askEvent\(\) should return ''''\|class\-string but returns non\-empty\-string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ListenerCommand\:\:askEvent\(\) should return ''''\|class\-string but returns string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:askEvent\\(\\) should return ''\\|class\\-string but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ListenerCommand\:\:askEvent\(\) should return ''''\|class\-string but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:disambiguateEvent\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ListenerCommand\:\:disambiguateEvent\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ListenerCommand\\:\\:qualifyEvent\\(\\) should return class\\-string but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ListenerCommand\:\:qualifyEvent\(\) should return class\-string but returns string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string, class\\-string\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string, class\-string\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\PolicyCommand\\:\\:disambiguateModel\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:disambiguateModel\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string\<Illuminate\\Database\\Eloquent\\Model\>, class\-string\<Illuminate\\Database\\Eloquent\\Model\>\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/PolicyCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\RequestCommand\:\:askData\(\) should return class\-string\<Spatie\\LaravelData\\Data\> but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:askData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\RequestCommand\:\:askData\(\) should return class\-string\<Spatie\\LaravelData\\Data\> but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:disambiguateDatas\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\RequestCommand\:\:disambiguateDatas\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:qualifyData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns class\\-string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\RequestCommand\:\:qualifyData\(\) should return class\-string\<Spatie\\LaravelData\\Data\> but returns class\-string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\RequestCommand\\:\\:qualifyData\\(\\) should return class\\-string\\<Spatie\\\\LaravelData\\\\Data\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\RequestCommand\:\:qualifyData\(\) should return class\-string\<Spatie\\LaravelData\\Data\> but returns string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Spatie\\\\LaravelData\\\\Data\\>, class\\-string\\<Spatie\\\\LaravelData\\\\Data\\>\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string\<Spatie\\LaravelData\\Data\>, class\-string\<Spatie\\LaravelData\\Data\>\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\|bool\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:askModel\\(\\) should return class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\ResourceCommand\\:\\:disambiguateModel\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:disambiguateModel\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\> given\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string\<Illuminate\\Database\\Eloquent\\Model\>, class\-string\<Illuminate\\Database\\Eloquent\\Model\>\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns array\\|bool\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askClass\(\) should return class\-string but returns array\|bool\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askClass\(\) should return class\-string but returns string\.$#'
+			identifier: return.type
 			count: 2
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askClass\\(\\) should return class\\-string but returns string\\|null\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askClass\(\) should return class\-string but returns string\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:askType\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askType\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:disambiguateClass\\(\\) should return string but returns int\\|string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:disambiguateClass\(\) should return string but returns int\|string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Method Soyhuce\\\\Somake\\\\Commands\\\\TestCommand\\:\\:qualifyClass\\(\\) should return class\\-string but returns string\\.$#"
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:qualifyClass\(\) should return class\-string but returns string\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Parameter \\$options of function Laravel\\\\Prompts\\\\select expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, Illuminate\\\\Support\\\\Collection\\<class\\-string, class\\-string\\> given\\.$#"
+			message: '#^Parameter \#1 \$suggestions of method Soyhuce\\Somake\\Commands\\TestCommand\:\:wrapSuggestions\(\) expects Illuminate\\Support\\Collection\<int, string\>, Illuminate\\Support\\Collection\<int, non\-empty\-string\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Commands/TestCommand.php
 
 		-
-			message: "#^Access to an undefined property PHPStan\\\\PhpDocParser\\\\Ast\\\\PhpDoc\\\\PhpDocTagValueNode\\:\\:\\$type\\.$#"
+			message: '#^Parameter \$options of function Laravel\\Prompts\\select expects array\<int\|string, string\>\|Illuminate\\Support\\Collection\<int\|string, string\>, Illuminate\\Support\\Collection\<class\-string, class\-string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Commands/TestCommand.php
+
+		-
+			message: '#^Access to an undefined property PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PhpDocTagValueNode\:\:\$type\.$#'
+			identifier: property.notFound
 			count: 1
 			path: src/Domains/DocBlock/DocBlock.php
 
 		-
-			message: "#^Parameter \\#1 \\$subject of static method Illuminate\\\\Support\\\\Str\\:\\:after\\(\\) expects string, string\\|null given\\.$#"
+			message: '#^Parameter \#1 \$subject of static method Illuminate\\Support\\Str\:\:after\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
 			count: 2
 			path: src/Domains/Model/Model.php
 
 		-
-			message: "#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			message: '#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			identifier: argument.templateType
 			count: 1
 			path: src/Domains/Test/UnitTestGenerator.php
 
 		-
-			message: "#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			message: '#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			identifier: argument.templateType
 			count: 1
 			path: src/Domains/Test/UnitTestGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Container\\\\Container\\:\\:call\\(\\) expects \\(callable\\(\\)\\: mixed\\)\\|string, array\\{Illuminate\\\\Foundation\\\\Http\\\\FormRequest, 'rules'\\} given\\.$#"
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Container\\Container\:\:call\(\) expects \(callable\(\)\: mixed\)\|string, array\{Illuminate\\Foundation\\Http\\FormRequest, ''rules''\} given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Domains/Test/UnitTestGenerators/FormRequestTestGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			message: '#^Parameter \#1 \$objectOrClass of class ReflectionClass constructor expects class\-string\<T of object\>\|T of object, string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Domains/Test/UnitTestGenerators/ListenerTestGenerator.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Support/PendingWriter.php
 
