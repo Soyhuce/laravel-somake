@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 3.0.1 - 2024-11-25
+
+### What's Changed
+
+* Run tests on php 8.4 by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/56
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/3.0.0...3.0.1
+
 ## 3.0.0 - 2024-11-21
 
 ### What's Changed
