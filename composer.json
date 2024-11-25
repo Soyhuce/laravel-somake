@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "composer-runtime-api": "^2.0",
         "composer/class-map-generator": "^1.4",
         "illuminate/console": "^11.0",
