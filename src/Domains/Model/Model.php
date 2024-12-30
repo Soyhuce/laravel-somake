@@ -32,7 +32,7 @@ class Model
     }
 
     /**
-     * @return Collection<int, Attribute>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\Model\Attribute>
      */
     public function factoryAttributes(): Collection
     {
@@ -46,7 +46,7 @@ class Model
     }
 
     /**
-     * @return Collection<int, Attribute>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\Model\Attribute>
      */
     public function allAttributes(): Collection
     {

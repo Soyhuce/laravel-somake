@@ -14,7 +14,7 @@ trait AsksModel
     use WrapsSuggestions;
 
     /**
-     * @param Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
+     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      * @return class-string<\Illuminate\Database\Eloquent\Model>
      */
     protected function askModel(Collection $models): string
@@ -69,7 +69,7 @@ trait AsksModel
     }
 
     /**
-     * @param Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
+     * @param \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>> $models
      */
     private function disambiguateModel(Collection $models): string
     {

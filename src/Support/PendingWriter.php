@@ -16,7 +16,7 @@ class PendingWriter
 
     protected string $stub;
 
-    /** @var Collection<string, mixed> */
+    /** @var \Illuminate\Support\Collection<string, mixed> */
     protected Collection $data;
 
     /**

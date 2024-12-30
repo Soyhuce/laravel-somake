@@ -26,7 +26,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, string>
+     * @return \Illuminate\Support\Collection<int, string>
      */
     public function domains(): Collection
     {
@@ -45,7 +45,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, string>
+     * @return \Illuminate\Support\Collection<int, string>
      */
     public function applications(): Collection
     {
@@ -59,7 +59,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, string>
+     * @return \Illuminate\Support\Collection<int, string>
      */
     private function findApplications(string $path): Collection
     {
@@ -91,7 +91,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, class-string>
+     * @return \Illuminate\Support\Collection<int, class-string>
      */
     public function events(): Collection
     {
@@ -108,7 +108,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, class-string<Model>>
+     * @return \Illuminate\Support\Collection<int, class-string<\Illuminate\Database\Eloquent\Model>>
      */
     public function models(): Collection
     {
@@ -119,7 +119,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, class-string<Data>>
+     * @return \Illuminate\Support\Collection<int, class-string<\Spatie\LaravelData\Data>>
      */
     public function datas(): Collection
     {
@@ -130,7 +130,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, class-string>
+     * @return \Illuminate\Support\Collection<int, class-string>
      */
     public function classes(): Collection
     {
@@ -147,7 +147,7 @@ class Finder
     }
 
     /**
-     * @return Collection<int, class-string>
+     * @return \Illuminate\Support\Collection<int, class-string>
      */
     public function controllers(): Collection
     {

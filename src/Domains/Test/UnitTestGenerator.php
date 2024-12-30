@@ -11,7 +11,7 @@ use Soyhuce\Somake\Contracts\UnitTestGenerator as UnitTestGeneratorContract;
  */
 class UnitTestGenerator
 {
-    /** @var UnitTestGeneratorContract<TClass> */
+    /** @var \Soyhuce\Somake\Contracts\UnitTestGenerator<TClass> */
     protected UnitTestGeneratorContract $generator;
 
     /**
