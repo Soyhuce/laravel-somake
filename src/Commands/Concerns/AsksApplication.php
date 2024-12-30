@@ -10,7 +10,7 @@ trait AsksApplication
     use WrapsSuggestions;
 
     /**
-     * @param Collection<int, string> $applications
+     * @param \Illuminate\Support\Collection<int, string> $applications
      */
     protected function askApplication(Collection $applications): string
     {
@@ -22,7 +22,7 @@ trait AsksApplication
     }
 
     /**
-     * @param Collection<int, string>|null $domains
+     * @param \Illuminate\Support\Collection<int, string>|null $domains
      */
     protected function askOptionalNamespace(string $classname, ?Collection $domains = null): string
     {

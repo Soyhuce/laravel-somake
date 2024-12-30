@@ -14,7 +14,7 @@ trait AsksData
     use WrapsSuggestions;
 
     /**
-     * @param Collection<int, class-string<\Spatie\LaravelData\Data>> $datas
+     * @param \Illuminate\Support\Collection<int, class-string<\Spatie\LaravelData\Data>> $datas
      * @return class-string<\Spatie\LaravelData\Data>
      */
     protected function askData(Collection $datas): string
@@ -68,7 +68,7 @@ trait AsksData
     }
 
     /**
-     * @param Collection<int, class-string<\Spatie\LaravelData\Data>> $datas
+     * @param \Illuminate\Support\Collection<int, class-string<\Spatie\LaravelData\Data>> $datas
      */
     private function disambiguateDatas(Collection $datas): string
     {

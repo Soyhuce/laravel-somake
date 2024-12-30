@@ -59,7 +59,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
     }
 
     /**
-     * @param class-string<JsonResource> $class
+     * @param class-string<\Illuminate\Http\Resources\Json\JsonResource> $class
      */
     private function extractMixin(string $class): ?string
     {
@@ -70,7 +70,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
     }
 
     /**
-     * @param class-string<JsonResource> $class
+     * @param class-string<\Illuminate\Http\Resources\Json\JsonResource> $class
      * @return array<int, string>
      */
     private function extractFields(string $class): array

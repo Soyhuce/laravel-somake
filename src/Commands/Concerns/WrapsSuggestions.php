@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 trait WrapsSuggestions
 {
     /**
-     * @param Collection<int, string> $suggestions
+     * @param \Illuminate\Support\Collection<int, string> $suggestions
      * @return Closure(string): array<int, string>
      */
     public function wrapSuggestions(Collection $suggestions): Closure

@@ -33,7 +33,7 @@ class DocBlock
     /**
      * @param class-string $class
      * @param array<string> $types
-     * @return Collection<int, DocTag>
+     * @return \Illuminate\Support\Collection<int, \Soyhuce\Somake\Domains\DocBlock\DocTag>
      */
     public function getTags(string $class, array $types): Collection
     {
