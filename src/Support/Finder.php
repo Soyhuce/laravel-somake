@@ -36,7 +36,7 @@ class Finder
 
     public function domainPath(string $path): string
     {
-        return rtrim($this->domainRootPath() . Str::start($path, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
+        return mb_rtrim($this->domainRootPath() . Str::start($path, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
     }
 
     private function domainRootPath(): string
@@ -55,7 +55,7 @@ class Finder
 
     public function applicationPath(string $path): string
     {
-        return rtrim($this->applicationRootPath() . Str::start($path, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
+        return mb_rtrim($this->applicationRootPath() . Str::start($path, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
     }
 
     /**

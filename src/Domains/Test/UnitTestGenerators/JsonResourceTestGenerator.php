@@ -47,7 +47,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
         }
 
         [$modelFqcn, $modelClassBasename] = class_exists($modelMixin)
-            ? [ltrim($modelMixin, '\\'), class_basename($modelMixin)]
+            ? [mb_ltrim($modelMixin, '\\'), class_basename($modelMixin)]
             : [null, class_basename($modelMixin)];
 
         return [
