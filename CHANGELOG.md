@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 3.0.2 - 2024-12-30
+
+### What's Changed
+
+* Dependencies upgrade by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/59
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/3.0.1...3.0.2
+
 ## 3.0.1 - 2024-11-25
 
 ### What's Changed
