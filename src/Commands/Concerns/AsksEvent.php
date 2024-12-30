@@ -71,7 +71,7 @@ trait AsksEvent
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, class-string> $guessedEvents
+     * @param Collection<int, class-string> $guessedEvents
      */
     private function disambiguateEvent(Collection $guessedEvents): string
     {

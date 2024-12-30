@@ -10,7 +10,7 @@ trait AsksDomain
     use WrapsSuggestions;
 
     /**
-     * @param \Illuminate\Support\Collection<int, string> $domains
+     * @param Collection<int, string> $domains
      */
     protected function askDomain(Collection $domains): string
     {
