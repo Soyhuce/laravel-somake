@@ -10,7 +10,7 @@ use function is_string;
 
 class FileOpener
 {
-    /** @var Collection<int, \Soyhuce\Somake\Support\FileWritten> */
+    /** @var Collection<int, FileWritten> */
     protected Collection $events;
 
     public function __construct()

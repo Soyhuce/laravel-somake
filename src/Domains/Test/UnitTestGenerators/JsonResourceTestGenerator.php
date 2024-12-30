@@ -47,7 +47,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
         }
 
         [$modelFqcn, $modelClassBasename] = class_exists($modelMixin)
-            ? [mb_ltrim($modelMixin, '\\'), class_basename($modelMixin)]
+            ? [Str::ltrim($modelMixin, '\\'), class_basename($modelMixin)]
             : [null, class_basename($modelMixin)];
 
         return [
@@ -59,7 +59,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
     }
 
     /**
-     * @param class-string<\Illuminate\Http\Resources\Json\JsonResource> $class
+     * @param class-string<JsonResource> $class
      */
     private function extractMixin(string $class): ?string
     {
@@ -70,7 +70,7 @@ class JsonResourceTestGenerator implements UnitTestGenerator
     }
 
     /**
-     * @param class-string<\Illuminate\Http\Resources\Json\JsonResource> $class
+     * @param class-string<JsonResource> $class
      * @return array<int, string>
      */
     private function extractFields(string $class): array
