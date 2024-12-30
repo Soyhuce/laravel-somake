@@ -74,7 +74,7 @@ trait AsksClass
     }
 
     /**
-     * @param \Illuminate\Support\Collection<int, class-string> $guessedClasses
+     * @param Collection<int, class-string> $guessedClasses
      */
     private function disambiguateClass(Collection $guessedClasses): string
     {
