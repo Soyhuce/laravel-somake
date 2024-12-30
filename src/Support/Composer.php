@@ -34,7 +34,7 @@ class Composer
 
         $suffix = (string) Str::of($namespace)->after($rootNamespace)->replace('\\', DIRECTORY_SEPARATOR);
 
-        return mb_rtrim(realpath($path) . DIRECTORY_SEPARATOR . $suffix, DIRECTORY_SEPARATOR);
+        return Str::rtrim(realpath($path) . DIRECTORY_SEPARATOR . $suffix, DIRECTORY_SEPARATOR);
     }
 
     /**
@@ -56,6 +56,6 @@ class Composer
 
         $suffix = (string) Str::of($path)->after($rootPath)->replace(DIRECTORY_SEPARATOR, '\\');
 
-        return mb_rtrim(mb_rtrim((string) $rootNamespace, '\\') . $suffix, '\\');
+        return Str::rtrim(Str::rtrim((string) $rootNamespace, '\\') . $suffix, '\\');
     }
 }
