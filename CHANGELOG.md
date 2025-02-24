@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 3.1.0 - 2025-02-24
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/Soyhuce/laravel-somake/pull/60
+* Run tests with Laravel 12 by @bastien-phi in https://github.com/Soyhuce/laravel-somake/pull/61
+
+**Full Changelog**: https://github.com/Soyhuce/laravel-somake/compare/3.0.2...3.1.0
+
 ## 3.0.2 - 2024-12-30
 
 ### What's Changed
