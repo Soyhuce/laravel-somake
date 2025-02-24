@@ -9,6 +9,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 use Soyhuce\Somake\SomakeServiceProvider;
 use Spatie\LaravelData\LaravelDataServiceProvider;
 use Support\BaseApplication;
+use function in_array;
 
 /**
  * @coversNothing
@@ -72,7 +73,7 @@ class TestCase extends Orchestra
                         return;
                     }
 
-                    if (str_starts_with($file, realpath(__DIR__.'/../vendor/composer/pcre'))) {
+                    if (str_starts_with($file, realpath(__DIR__ . '/../vendor/composer/pcre'))) {
                         return;
                     }
 
