@@ -43,7 +43,6 @@ class PolicyCommand extends Command
     {
         $gateClass = new ReflectionClass(Gate::class);
         $guessPolicyName = $gateClass->getMethod('guessPolicyName');
-        $guessPolicyName->setAccessible(true);
 
         return $guessPolicyName->invoke(GateFacade::getFacadeRoot(), $modelName)[0];
     }

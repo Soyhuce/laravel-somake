@@ -6,14 +6,13 @@ use ErrorException;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDeprecationHandling;
 use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as Orchestra;
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Soyhuce\Somake\SomakeServiceProvider;
 use Spatie\LaravelData\LaravelDataServiceProvider;
 use Support\BaseApplication;
 use function in_array;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class TestCase extends Orchestra
 {
     use InteractsWithDeprecationHandling;
