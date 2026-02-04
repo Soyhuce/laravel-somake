@@ -8,10 +8,12 @@ use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:model', description: 'Generates a Model in Domain')]
 class ModelCommand extends Command
 {
     use AsksDomain;

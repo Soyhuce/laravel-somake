@@ -7,7 +7,7 @@ parameters:
 			path: config/somake.php
 
 		-
-			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			message: '#^Method Soyhuce\\Somake\\Commands\\BuilderCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|float\|int\|string\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Commands/BuilderCommand.php
@@ -37,7 +37,7 @@ parameters:
 			path: src/Commands/BuilderCommand.php
 
 		-
-			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			message: '#^Method Soyhuce\\Somake\\Commands\\FactoryCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|float\|int\|string\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Commands/FactoryCommand.php
@@ -103,7 +103,7 @@ parameters:
 			path: src/Commands/ListenerCommand.php
 
 		-
-			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			message: '#^Method Soyhuce\\Somake\\Commands\\PolicyCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|float\|int\|string\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Commands/PolicyCommand.php
@@ -169,7 +169,7 @@ parameters:
 			path: src/Commands/RequestCommand.php
 
 		-
-			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|string\.$#'
+			message: '#^Method Soyhuce\\Somake\\Commands\\ResourceCommand\:\:askModel\(\) should return class\-string\<Illuminate\\Database\\Eloquent\\Model\> but returns array\|bool\|float\|int\|string\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Commands/ResourceCommand.php
@@ -199,7 +199,7 @@ parameters:
 			path: src/Commands/ResourceCommand.php
 
 		-
-			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askClass\(\) should return class\-string but returns array\|bool\|string\.$#'
+			message: '#^Method Soyhuce\\Somake\\Commands\\TestCommand\:\:askClass\(\) should return class\-string but returns array\|bool\|float\|int\|string\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Commands/TestCommand.php
@@ -259,13 +259,13 @@ parameters:
 			path: src/Domains/Model/Model.php
 
 		-
-			message: '#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			message: '#^Unable to resolve the template type TMakeKey in call to static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
 			identifier: argument.templateType
 			count: 1
 			path: src/Domains/Test/UnitTestGenerator.php
 
 		-
-			message: '#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			message: '#^Unable to resolve the template type TMakeValue in call to static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
 			identifier: argument.templateType
 			count: 1
 			path: src/Domains/Test/UnitTestGenerator.php

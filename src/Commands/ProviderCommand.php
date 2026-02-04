@@ -4,9 +4,11 @@ namespace Soyhuce\Somake\Commands;
 
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:provider', description: 'Generates a Service Provider')]
 class ProviderCommand extends Command
 {
     /** @var string */

@@ -8,9 +8,11 @@ use Soyhuce\Somake\Commands\Concerns\AsksModel;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\outro;
 
+#[AsCommand(name: 'somake:builder', description: 'Generates an Eloquent Builder')]
 class BuilderCommand extends Command
 {
     use AsksModel;

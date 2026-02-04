@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Soyhuce\Somake\Support\FileWritten;
 use SplFileInfo;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(name: 'somake:migration', description: 'Generates a Migration')]
 class MigrationCommand extends MigrateMakeCommand
 {
     public function __construct(MigrationCreator $creator, Composer $composer)

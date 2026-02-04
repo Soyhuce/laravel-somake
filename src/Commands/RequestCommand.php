@@ -14,12 +14,14 @@ use Soyhuce\Somake\Support\Writer;
 use Spatie\LaravelData\Resolvers\DataValidationRulesResolver;
 use Spatie\LaravelData\Support\Validation\DataRules;
 use Spatie\LaravelData\Support\Validation\ValidationPath;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function is_string;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:request', description: 'Generates a Request in App')]
 class RequestCommand extends Command
 {
     use AsksApplication;

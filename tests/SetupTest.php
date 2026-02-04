@@ -3,34 +3,28 @@
 namespace Soyhuce\Somake\Tests;
 
 use Illuminate\Support\Carbon;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Test;
 use Support\BaseApplication;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class SetupTest extends TestCase
 {
     use RestoreTestApplication;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function applicationIsTheGoodOne(): void
     {
         $this->assertInstanceOf(BaseApplication::class, $this->app);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function applicationBasePathIsCorrectlySet(): void
     {
         $this->assertEquals(realpath(__DIR__ . '/../test-laravel'), $this->app->basePath());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function generatedFilesGoInTheRightPlace(): void
     {
         Carbon::setTestNow(now());
