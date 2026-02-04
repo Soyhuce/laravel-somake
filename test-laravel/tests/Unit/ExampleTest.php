@@ -2,18 +2,14 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @test
-     */
+    #[Test]
     public function basicTest(): void
     {
         $this->assertTrue(true);
