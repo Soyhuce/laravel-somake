@@ -6,9 +6,11 @@ use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:event', description: 'Generates an Event in Domain')]
 class EventCommand extends Command
 {
     use AsksDomain;

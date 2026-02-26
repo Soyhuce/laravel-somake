@@ -7,9 +7,12 @@ use Soyhuce\Somake\Commands\Concerns\AsksApplication;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
+use function Laravel\Prompts\outro;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:middleware', description: 'Generates a Middleware in App')]
 class MiddlewareCommand extends Command
 {
     use AsksApplication;
@@ -35,7 +38,7 @@ class MiddlewareCommand extends Command
 
         $writer->write('middleware')->toClass($middlewareFqcn);
 
-        $this->info("The {$middlewareFqcn} class was successfully created !");
+        outro("The {$middlewareFqcn} class was successfully created !");
 
         $this->createUnitTest($middlewareFqcn);
     }

@@ -10,9 +10,11 @@ use Soyhuce\Somake\Commands\Concerns\AsksModel;
 use Soyhuce\Somake\Commands\Concerns\StartsArtisan;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\outro;
 
+#[AsCommand(name: 'somake:policy', description: 'Generates a Model Policy')]
 class PolicyCommand extends Command
 {
     use AsksModel;
@@ -43,7 +45,6 @@ class PolicyCommand extends Command
     {
         $gateClass = new ReflectionClass(Gate::class);
         $guessPolicyName = $gateClass->getMethod('guessPolicyName');
-        $guessPolicyName->setAccessible(true);
 
         return $guessPolicyName->invoke(GateFacade::getFacadeRoot(), $modelName)[0];
     }

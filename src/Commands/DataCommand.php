@@ -6,9 +6,11 @@ use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:data', description: 'Generates a Data in Domain')]
 class DataCommand extends Command
 {
     use AsksDomain;

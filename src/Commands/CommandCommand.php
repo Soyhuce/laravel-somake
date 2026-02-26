@@ -5,9 +5,11 @@ namespace Soyhuce\Somake\Commands;
 use Illuminate\Console\Command;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:command', description: 'Generates a Command in App\\Commands')]
 class CommandCommand extends Command
 {
     use CreatesAssociatedUnitTest;

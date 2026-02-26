@@ -7,9 +7,11 @@ use Soyhuce\Somake\Commands\Concerns\AsksDomain;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:action', description: 'Generates an Action in Domain')]
 class ActionCommand extends Command
 {
     use AsksDomain;

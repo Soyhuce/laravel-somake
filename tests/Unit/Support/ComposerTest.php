@@ -2,17 +2,15 @@
 
 namespace Soyhuce\Somake\Tests\Unit\Support;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Soyhuce\Somake\Support\Composer;
 use Soyhuce\Somake\Tests\TestCase;
 
-/**
- * @covers \Soyhuce\Somake\Support\Composer
- */
+#[CoversClass(Composer::class)]
 class ComposerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function pathOfNamespaceIsFound(): void
     {
         $composer = new Composer();
@@ -33,9 +31,7 @@ class ComposerTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function namespaceOrPathIsFound(): void
     {
         $composer = new Composer();

@@ -13,7 +13,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.3, 8.4]
+        php: [8.3, 8.4, 8.5]
         laravel: [^11.0, ^12.0]
         laravel-data: [^4.0]
         stability: [prefer-lowest, prefer-stable]
@@ -24,6 +24,9 @@ jobs:
             testbench: ^10.0
         exclude:
           - php: 8.4
+            laravel: ^11.0
+            stability: prefer-lowest
+          - php: 8.5
             laravel: ^11.0
             stability: prefer-lowest
 

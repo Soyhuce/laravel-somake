@@ -9,9 +9,11 @@ use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Domains\Model\Model;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:resource', description: 'Generates a resource in App')]
 class ResourceCommand extends Command
 {
     use AsksApplication;

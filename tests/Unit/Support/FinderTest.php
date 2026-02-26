@@ -4,18 +4,16 @@ namespace Soyhuce\Somake\Tests\Unit\Support;
 
 use Domain\User\Data\UserData;
 use Domain\User\Models\User;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Soyhuce\Somake\Support\Composer;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Tests\TestCase;
 
-/**
- * @covers \Soyhuce\Somake\Support\Finder
- */
+#[CoversClass(Finder::class)]
 class FinderTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function domainsAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());
@@ -23,9 +21,7 @@ class FinderTest extends TestCase
         $this->assertEquals(['User'], $finder->domains()->all());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function domainPathAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());
@@ -41,9 +37,7 @@ class FinderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function modelsAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());
@@ -54,9 +48,7 @@ class FinderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function dataObjectsAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());
@@ -67,9 +59,7 @@ class FinderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function applicationsAreCorrectlyResolved(): void
     {
         $finder = new Finder(new Composer());

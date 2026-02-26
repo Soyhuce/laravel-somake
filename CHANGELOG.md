@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-somake` will be documented in this file.
 
+## 3.2.0 - 2026-02-04
+
+### What's Changed
+
+* Add support for php 8.5
+
 ## 3.1.0 - 2025-02-24
 
 ### What's Changed

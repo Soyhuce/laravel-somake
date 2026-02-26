@@ -8,9 +8,11 @@ use Soyhuce\Somake\Commands\Concerns\AsksEvent;
 use Soyhuce\Somake\Commands\Concerns\CreatesAssociatedUnitTest;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\text;
 
+#[AsCommand(name: 'somake:listener', description: 'Generates a Listener in Domain')]
 class ListenerCommand extends Command
 {
     use AsksDomain;

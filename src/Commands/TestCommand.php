@@ -13,12 +13,14 @@ use Soyhuce\Somake\Domains\Test\TestNameGuesser;
 use Soyhuce\Somake\Domains\Test\UnitTestGenerator;
 use Soyhuce\Somake\Support\Finder;
 use Soyhuce\Somake\Support\Writer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use function in_array;
 use function Laravel\Prompts\outro;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 use function sprintf;
 
+#[AsCommand(name: 'somake:test', description: 'Generates a test class')]
 class TestCommand extends Command
 {
     use AsksClass;
